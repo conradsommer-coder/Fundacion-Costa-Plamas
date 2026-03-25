@@ -1,0 +1,55 @@
+import React from 'react';
+
+const locations = [
+  { name: 'La Ribera', image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774048042/Gemini_Generated_Image_jvhgs8jvhgs8jvhg_ohsrtl.png' },
+  { name: 'Santiago', image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774048043/Gemini_Generated_Image_w2djgfw2djgfw2dj_1_z2lgxn.png' },
+  { name: 'Miraflores', image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774048052/Gemini_Generated_Image_tt0r7ntt0r7ntt0r_v4439v.png' },
+];
+
+const Region: React.FC = () => {
+  return (
+    <div className="container mx-auto px-4 md:px-8">
+      <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+        <div>
+          <h2 className="text-4xl md:text-5xl text-sea mb-8">Nuestra Región</h2>
+          <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
+            <p>
+              Cabo del Este es una región de contrastes asombrosos, donde el desierto se encuentra con el Mar de Cortés. Es el hogar de comunidades vibrantes con una rica herencia cultural y una biodiversidad única en el mundo.
+            </p>
+            <p>
+              Nuestra labor se extiende a lo largo de diversas comunidades, cada una con su propia identidad y desafíos, pero unidas por el deseo de un futuro próspero.
+            </p>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-3 gap-4">
+          {locations.map((loc, index) => (
+            <div key={index} className="group relative aspect-[3/4] rounded-2xl overflow-hidden shadow-md">
+              <img 
+                src={loc.image} 
+                alt={loc.name} 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-end p-4">
+                <span className="text-white font-bold text-sm md:text-base">{loc.name}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="rounded-3xl overflow-hidden shadow-2xl aspect-[21/9] bg-sea/5">
+        <video 
+          src="https://res.cloudinary.com/dr78wne7t/video/upload/v1774046737/Untitled_design_14_xbsv90.mp4" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+  );
+};
+
+export default Region;
