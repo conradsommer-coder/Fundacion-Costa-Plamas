@@ -32,7 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
               : "https://res.cloudinary.com/dr78wne7t/image/upload/v1774037190/ChatGPT_Image_Mar_10_2026_07_50_31_PM_d3ympz.png"
             } 
             alt="Fundación Costa Palmas Logo" 
-            className="h-12 md:h-20 w-auto object-contain transition-all duration-300"
+            className="h-12 md:h-24 w-auto object-contain transition-all duration-300"
             referrerPolicy="no-referrer"
           />
         </Link>

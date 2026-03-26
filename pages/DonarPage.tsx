@@ -4,17 +4,6 @@ import { Heart, ShieldCheck, TrendingUp, Users } from 'lucide-react';
 
 const DonarPage: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
-  
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const fu = (window as any).FundraiseUp;
-      if (fu && typeof fu.call === 'function') {
-        fu.call('reinit');
-      }
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
-
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
@@ -37,7 +26,7 @@ const DonarPage: React.FC = () => {
           <div className="absolute inset-0 bg-black/50 z-10" />
         </div>
         
-        <div className="container mx-auto px-4 relative z-20 text-center text-white pt-24">
+        <div className="container mx-auto px-4 relative z-20 text-center text-white">
           <motion.img 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -125,20 +114,26 @@ const DonarPage: React.FC = () => {
             <div className="bg-paper p-8 md:p-12 rounded-[3rem] shadow-xl border border-gray-100 sticky top-32">
               <div className="text-center mb-8">
                 <h3 className="text-3xl font-bold text-sea mb-2">Haz tu donación</h3>
-                <p className="text-gray-500 mb-8">Seguro y rápido a través de nuestra plataforma</p>
+                <p className="text-gray-500">Seguro y rápido a través de nuestra plataforma</p>
               </div>
               
-              <div className="min-h-[400px]">
-                {/* Fundraise Up Embedded Widget */}
-                <div data-fundraiseup-embed="XMRYFKPU"></div>
+              <div className="flex justify-center">
+                <a 
+                  href="https://azclftch.donorsupport.co/-/XATEBFMG"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-12 py-5 bg-coral text-white rounded-full font-bold text-lg hover:bg-opacity-90 transition-all hover:scale-105"
+                >
+                  Donar Ahora
+                </a>
               </div>
               
               <div className="mt-12 pt-8 border-t border-gray-200 text-center">
                 <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-4">Donación Segura</p>
                 <div className="flex justify-center gap-6 items-center opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/512px-Visa_Inc._logo.svg.png" alt="Visa" className="h-4" referrerPolicy="no-referrer" />
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/512px-Mastercard-logo.svg.png" alt="Mastercard" className="h-8" referrerPolicy="no-referrer" />
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/512px-PayPal.svg.png" alt="PayPal" className="h-5" referrerPolicy="no-referrer" />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Visa_2021.svg" alt="Visa" className="h-5" referrerPolicy="no-referrer" />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-8" referrerPolicy="no-referrer" />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="h-5" referrerPolicy="no-referrer" />
                 </div>
               </div>
             </div>

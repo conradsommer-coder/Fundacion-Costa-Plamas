@@ -63,7 +63,7 @@ const NosotrosPage: React.FC = () => {
           <div className="absolute inset-0 bg-black/40 z-10" />
         </div>
         
-        <div className="container mx-auto px-4 relative z-20 text-center text-white pt-24">
+        <div className="container mx-auto px-4 relative z-20 text-center text-white">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
