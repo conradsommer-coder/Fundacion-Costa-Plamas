@@ -6,15 +6,13 @@ const DonarPage: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
   
   useEffect(() => {
-    // Re-initialize Fundraise Up widget if it exists
-    const fu = (window as any).FundraiseUp;
-    if (fu && typeof fu.call === 'function') {
-      // Use a small timeout to ensure the DOM is ready for the widget to scan
-      const timer = setTimeout(() => {
+    const timer = setTimeout(() => {
+      const fu = (window as any).FundraiseUp;
+      if (fu && typeof fu.call === 'function') {
         fu.call('reinit');
-      }, 100);
-      return () => clearTimeout(timer);
-    }
+      }
+    }, 500);
+    return () => clearTimeout(timer);
   }, []);
 
   const { scrollYProgress } = useScroll({
@@ -39,7 +37,7 @@ const DonarPage: React.FC = () => {
           <div className="absolute inset-0 bg-black/50 z-10" />
         </div>
         
-        <div className="container mx-auto px-4 relative z-20 text-center text-white">
+        <div className="container mx-auto px-4 relative z-20 text-center text-white pt-24">
           <motion.img 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -132,7 +130,7 @@ const DonarPage: React.FC = () => {
               
               <div className="min-h-[400px]">
                 {/* Fundraise Up Embedded Widget */}
-                <div data-fundraiseup-embed="XATEBFMG"></div>
+                <div data-fundraiseup-embed="XMRYFKPU"></div>
               </div>
               
               <div className="mt-12 pt-8 border-t border-gray-200 text-center">
