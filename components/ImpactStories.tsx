@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 
 const stories = [
   {
@@ -30,44 +31,86 @@ interface ImpactStoriesProps {
 }
 
 const ImpactStories: React.FC<ImpactStoriesProps> = ({ showTitle = true }) => {
-  return (
-    <div className="bg-[#F5F2E8] py-24">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="text-center mb-16 max-w-4xl mx-auto">
-          {showTitle && <h2 className="text-4xl md:text-5xl text-sea mb-8">Historias de Impacto</h2>}
-          <p className="text-xl md:text-2xl text-sea/80 leading-relaxed font-light">
-            Detrás de cada iniciativa de Fundación Costa Palmas hay personas, experiencias y logros que nos motivan a seguir adelante. En esta sección, compartimos historias de impacto sobre los programas y proyectos en nuestra comunidad. ¡Descubre más sobre nuestro trabajo y únete al cambio!
-          </p>
-        </div>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
 
-        <div className="grid md:grid-cols-3 gap-12">
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  return (
+    <div className="bg-[#F5F2E8] py-24 overflow-hidden">
+      <div className="container mx-auto px-4 md:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16 max-w-4xl mx-auto"
+        >
+          {showTitle && <h2 className="text-4xl md:text-5xl text-sea mb-8 font-serif">Historias de Impacto</h2>}
+          <p className="text-xl md:text-2xl text-sea/80 leading-relaxed font-light italic">
+            "Detrás de cada iniciativa de Fundación Costa Palmas hay personas, experiencias y logros que nos motivan a seguir adelante."
+          </p>
+          <div className="w-20 h-1 bg-coral mx-auto mt-8" />
+        </motion.div>
+
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid md:grid-cols-3 gap-12"
+        >
           {stories.map((story, index) => (
-            <div key={index} className="flex flex-col group">
-              <div className="aspect-[4/3] overflow-hidden rounded-sm mb-6 shadow-md relative">
-                <img 
+            <motion.div 
+              key={index} 
+              variants={itemVariants}
+              whileHover={{ y: -10 }}
+              className="flex flex-col group cursor-pointer"
+            >
+              <div className="aspect-[4/3] overflow-hidden rounded-2xl mb-6 shadow-xl relative z-10">
+                <motion.img 
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
                   src={story.image} 
                   alt={story.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-sea">
+                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-sea shadow-sm">
                   {story.category}
                 </div>
               </div>
-              <div className="flex-grow">
-                <h3 className="text-2xl md:text-3xl text-sea mb-4 font-serif leading-tight group-hover:text-coral transition-colors">
+              <div className="flex-grow px-2">
+                <h3 className="text-2xl md:text-3xl text-sea mb-4 font-serif leading-tight group-hover:text-coral transition-colors duration-300">
                   {story.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-8">{story.date}</p>
+                <p className="text-gray-400 text-sm mb-8 font-medium">{story.date}</p>
                 <Link 
                   to={`/historias/${story.id}`}
-                  className="inline-block px-8 py-2.5 bg-[#94A3B8] text-white rounded-full text-sm font-bold tracking-wider hover:bg-sea transition-all uppercase"
+                  className="inline-flex items-center px-8 py-3 bg-sea text-white rounded-full text-xs font-bold tracking-widest hover:bg-coral transition-all uppercase shadow-lg hover:shadow-coral/20"
                 >
                   Leer más
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

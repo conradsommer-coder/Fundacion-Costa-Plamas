@@ -180,48 +180,80 @@ const ProgramDetailPage: React.FC = () => {
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid lg:grid-cols-3 gap-16">
             {/* Left Column: Info */}
-            <div className="lg:col-span-2 space-y-16">
-              <div>
-                <h2 className="text-3xl font-bold text-sea mb-6">Sobre el Programa</h2>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  {program.fullDescription}
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-3xl font-bold text-sea mb-8">Objetivos Principales</h2>
-                <div className="grid sm:grid-cols-2 gap-6">
-                  {program.objectives.map((obj, i) => (
-                    <div key={i} className="flex gap-4 items-start p-6 bg-paper rounded-3xl border border-gray-100">
-                      <CheckCircle2 className="w-6 h-6 text-coral shrink-0" />
-                      <p className="text-gray-700 font-medium">{obj}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Success Story */}
-              <div className="bg-sea text-white p-12 rounded-[3rem] relative overflow-hidden">
-                <div className="relative z-10">
-                  <Heart className="w-12 h-12 text-coral mb-6" />
-                  <h3 className="text-3xl font-bold mb-6 italic">"{program.successStory.title}"</h3>
-                  <p className="text-xl text-white/80 leading-relaxed mb-8 italic">
-                    {program.successStory.content}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="lg:col-span-2 space-y-16"
+              >
+                <div>
+                  <h2 className="text-3xl font-bold text-sea mb-6">Sobre el Programa</h2>
+                  <p className="text-xl text-gray-600 leading-relaxed">
+                    {program.fullDescription}
                   </p>
-                  <p className="font-bold text-coral">— {program.successStory.author}</p>
                 </div>
-                <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
-              </div>
-            </div>
+
+                <div>
+                  <h2 className="text-3xl font-bold text-sea mb-8">Objetivos Principales</h2>
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    {program.objectives.map((obj, i) => (
+                      <motion.div 
+                        key={i} 
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 }}
+                        className="flex gap-4 items-start p-6 bg-paper rounded-3xl border border-gray-100"
+                      >
+                        <CheckCircle2 className="w-6 h-6 text-coral shrink-0" />
+                        <p className="text-gray-700 font-medium">{obj}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Success Story */}
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className="bg-sea text-white p-12 rounded-[3rem] relative overflow-hidden group"
+                >
+                  <div className="relative z-10">
+                    <Heart className="w-12 h-12 text-coral mb-6 group-hover:scale-110 transition-transform duration-500" />
+                    <h3 className="text-3xl font-bold mb-6 italic">"{program.successStory.title}"</h3>
+                    <p className="text-xl text-white/80 leading-relaxed mb-8 italic">
+                      {program.successStory.content}
+                    </p>
+                    <p className="font-bold text-coral">— {program.successStory.author}</p>
+                  </div>
+                  <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition-colors duration-700"></div>
+                </motion.div>
+              </motion.div>
 
             {/* Right Column: Sidebar */}
-            <div className="lg:col-span-1 space-y-12">
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="lg:col-span-1 space-y-12"
+            >
               {/* Metrics */}
               <div className="bg-paper p-8 rounded-[2.5rem] border border-gray-100">
                 <h3 className="text-2xl font-bold text-sea mb-8">Impacto Real</h3>
                 <div className="space-y-8">
                   {program.metrics.map((metric, i) => (
-                    <div key={i} className="flex items-center gap-4">
+                    <motion.div 
+                      key={i} 
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.4 + (i * 0.1) }}
+                      className="flex items-center gap-4"
+                    >
                       <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-coral shadow-sm">
                         {metric.icon}
                       </div>
@@ -229,13 +261,16 @@ const ProgramDetailPage: React.FC = () => {
                         <div className="text-3xl font-bold text-sea">{metric.value}</div>
                         <div className="text-sm text-gray-500 uppercase tracking-wider font-bold">{metric.label}</div>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
 
               {/* How to Help */}
-              <div className="bg-coral text-white p-8 rounded-[2.5rem] shadow-xl shadow-coral/20">
+              <motion.div 
+                whileHover={{ y: -5 }}
+                className="bg-coral text-white p-8 rounded-[2.5rem] shadow-xl shadow-coral/20"
+              >
                 <h3 className="text-2xl font-bold mb-6">¿Cómo puedes ayudar?</h3>
                 <ul className="space-y-4 mb-8">
                   {program.howToHelp.map((item, i) => (
@@ -247,12 +282,12 @@ const ProgramDetailPage: React.FC = () => {
                 </ul>
                 <Link 
                   to="/donar" 
-                  className="block w-full py-4 bg-white text-coral text-center rounded-full font-bold hover:bg-paper transition-all"
+                  className="block w-full py-4 bg-white text-coral text-center rounded-full font-bold hover:bg-paper transition-all shadow-lg"
                 >
                   Donar ahora
                 </Link>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>

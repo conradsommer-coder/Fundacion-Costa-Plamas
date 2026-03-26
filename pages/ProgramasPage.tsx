@@ -91,16 +91,23 @@ const ProgramasPage: React.FC = () => {
       </section>
 
       {/* Intro Section */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-white overflow-hidden">
         <div className="container mx-auto px-4 md:px-8 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl text-sea mb-8 font-serif">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="max-w-4xl mx-auto"
+          >
+            <h2 className="text-4xl md:text-5xl text-sea mb-8 font-serif leading-tight">
               Cuidemos la Comunidad que nos Cuida
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <div className="w-24 h-1.5 bg-coral mx-auto mb-10 rounded-full" />
+            <p className="text-xl text-gray-600 leading-relaxed font-light">
               En Fundación Costa Palmas, trabajamos para impulsar el bienestar de las comunidades y proteger el entorno natural de Cabo del Este. A través de nuestros cinco programas, promovemos el desarrollo social, la educación, la sostenibilidad y la conservación ambiental, generando un impacto positivo y duradero.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -121,16 +128,26 @@ const ProgramasPage: React.FC = () => {
                     transition={{ duration: 0.8 }}
                     className="relative"
                   >
-                    <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+                    <motion.div 
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                      className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative z-10"
+                    >
                       <img 
                         src={program.image} 
                         alt={program.title} 
                         className="w-full h-full object-cover"
                         referrerPolicy="no-referrer"
                       />
-                    </div>
+                    </motion.div>
                     {/* Decorative element */}
-                    <div className={`absolute -z-10 w-full h-full border-2 border-coral rounded-3xl ${index % 2 === 0 ? '-bottom-6 -right-6' : '-bottom-6 -left-6'}`} />
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.4, duration: 0.6 }}
+                      className={`absolute -z-0 w-full h-full border-2 border-coral rounded-3xl ${index % 2 === 0 ? '-bottom-6 -right-6' : '-bottom-6 -left-6'}`} 
+                    />
                   </motion.div>
                 </div>
                 
@@ -162,15 +179,29 @@ const ProgramasPage: React.FC = () => {
       </section>
 
       {/* Partners Section */}
-      <section className="py-20 bg-paper">
+      <section className="py-24 bg-paper overflow-hidden">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl text-sea font-serif mb-4">Nuestros Aliados</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl text-sea font-serif mb-6">Nuestros Aliados</h2>
+            <div className="w-16 h-1 bg-coral mx-auto mb-8" />
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg font-light">
               Nuestros programas son posibles gracias al apoyo y compromiso de aliados estratégicos que comparten nuestra visión de un futuro con más oportunidades para todos.
             </p>
-          </div>
-          <Partners />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <Partners />
+          </motion.div>
         </div>
       </section>
 

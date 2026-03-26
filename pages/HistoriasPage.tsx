@@ -48,34 +48,50 @@ const HistoriasPage: React.FC = () => {
       </section>
 
       {/* Featured Story */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white overflow-hidden">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="rounded-3xl overflow-hidden shadow-2xl aspect-[16/10]"
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative group"
             >
-              <img 
-                src="https://res.cloudinary.com/dr78wne7t/image/upload/v1774390865/SANTIAGO-CLEANUP-39-scaled_eewtyy.jpg" 
-                alt="Featured Story" 
-                className="w-full h-full object-cover"
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.5 }}
+                className="rounded-3xl overflow-hidden shadow-2xl aspect-[16/10] relative z-10"
+              >
+                <img 
+                  src="https://res.cloudinary.com/dr78wne7t/image/upload/v1774390865/SANTIAGO-CLEANUP-39-scaled_eewtyy.jpg" 
+                  alt="Featured Story" 
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="absolute -bottom-6 -right-6 w-full h-full border-2 border-coral rounded-3xl -z-0"
               />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             >
               <span className="text-coral font-bold tracking-widest uppercase text-sm mb-4 block">Historia Destacada</span>
-              <h2 className="text-4xl md:text-5xl text-sea mb-6 font-serif">Un compromiso con la protección del Palmar</h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8">
+              <h2 className="text-4xl md:text-5xl text-sea mb-6 font-serif leading-tight">Un compromiso con la protección del Palmar</h2>
+              <div className="w-16 h-1 bg-coral mb-8" />
+              <p className="text-gray-600 text-lg leading-relaxed mb-8 font-light">
                 La protección de nuestros ecosistemas es una de las prioridades fundamentales de Fundación Costa Palmas. El Palmar de Cabo del Este no es solo un paisaje hermoso, es un pulmón vital para nuestra región y un hogar para innumerables especies.
               </p>
               <Link 
                 to="/historias/proteccion-palmar"
-                className="inline-block px-10 py-4 bg-sea text-white rounded-full font-bold hover:bg-sea/90 transition-all shadow-lg hover:shadow-xl"
+                className="inline-flex items-center px-10 py-4 bg-sea text-white rounded-full font-bold hover:bg-coral transition-all shadow-lg hover:shadow-coral/20"
               >
                 Leer historia completa
               </Link>

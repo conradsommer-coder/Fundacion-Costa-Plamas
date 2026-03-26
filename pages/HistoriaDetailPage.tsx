@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Share2, Facebook, Twitter, Instagram } from 'lucide-react';
+import { motion } from 'motion/react';
 import CTASection from '../components/CTASection';
 
 const stories = {
@@ -67,17 +68,28 @@ const HistoriaDetailPage: React.FC = () => {
   }
 
   return (
-    <main className="flex-grow pt-24">
+    <main className="flex-grow pt-24 overflow-hidden">
       {/* Article Header */}
       <article className="bg-white">
         <div className="container mx-auto px-4 md:px-8 py-16">
-          <Link to="/historias" className="inline-flex items-center gap-2 text-gray-500 hover:text-sea transition-colors mb-12 group">
-            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-            <span>Volver a Historias</span>
-          </Link>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Link to="/historias" className="inline-flex items-center gap-2 text-gray-500 hover:text-sea transition-colors mb-12 group">
+              <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+              <span>Volver a Historias</span>
+            </Link>
+          </motion.div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 text-gray-400 mb-6 text-sm">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex items-center gap-4 text-gray-400 mb-6 text-sm"
+            >
               <span className="flex items-center gap-1.5">
                 <Calendar className="w-4 h-4" />
                 {story.date}
@@ -89,71 +101,117 @@ const HistoriaDetailPage: React.FC = () => {
               </span>
               <span className="w-1 h-1 bg-gray-300 rounded-full" />
               <span className="uppercase tracking-widest font-bold text-coral">{story.category}</span>
-            </div>
+            </motion.div>
 
-            <h1 className="text-4xl md:text-6xl font-serif text-sea mb-12 leading-tight">
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-4xl md:text-6xl font-serif text-sea mb-12 leading-tight"
+            >
               {story.title}
-            </h1>
+            </motion.h1>
 
-            <div className="aspect-[16/9] rounded-3xl overflow-hidden mb-16 shadow-2xl">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+              className="aspect-[16/9] rounded-3xl overflow-hidden mb-16 shadow-2xl"
+            >
               <img 
                 src={story.image} 
                 alt={story.title} 
                 className="w-full h-full object-cover"
               />
-            </div>
+            </motion.div>
 
             <div className="grid lg:grid-cols-[1fr_250px] gap-16">
-              <div className="prose prose-lg prose-sea max-w-none">
-                <div dangerouslySetInnerHTML={{ __html: story.content }} className="space-y-8 text-gray-600 leading-relaxed text-lg" />
-              </div>
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="prose prose-lg prose-sea max-w-none"
+              >
+                <div dangerouslySetInnerHTML={{ __html: story.content }} className="space-y-8 text-gray-600 leading-relaxed text-lg font-light" />
+              </motion.div>
 
-              <aside className="space-y-12">
+              <motion.aside 
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="space-y-12"
+              >
                 <div className="p-8 bg-paper rounded-3xl border border-gray-100">
                   <h4 className="text-sea font-bold mb-6 flex items-center gap-2">
                     <Share2 className="w-5 h-5" />
                     Compartir
                   </h4>
                   <div className="flex gap-4">
-                    <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-400 hover:text-sea hover:shadow-md transition-all">
+                    <motion.button whileHover={{ scale: 1.1, y: -2 }} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-400 hover:text-sea hover:shadow-md transition-all">
                       <Facebook className="w-5 h-5" />
-                    </button>
-                    <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-400 hover:text-sea hover:shadow-md transition-all">
+                    </motion.button>
+                    <motion.button whileHover={{ scale: 1.1, y: -2 }} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-400 hover:text-sea hover:shadow-md transition-all">
                       <Twitter className="w-5 h-5" />
-                    </button>
-                    <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-400 hover:text-sea hover:shadow-md transition-all">
+                    </motion.button>
+                    <motion.button whileHover={{ scale: 1.1, y: -2 }} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-400 hover:text-sea hover:shadow-md transition-all">
                       <Instagram className="w-5 h-5" />
-                    </button>
+                    </motion.button>
                   </div>
                 </div>
 
-                <div className="p-8 bg-sea text-white rounded-3xl shadow-xl">
+                <motion.div 
+                  whileHover={{ y: -5 }}
+                  className="p-8 bg-sea text-white rounded-3xl shadow-xl"
+                >
                   <h4 className="text-xl font-serif mb-4">¿Quieres ser parte del cambio?</h4>
                   <p className="text-white/80 text-sm mb-8 leading-relaxed">
                     Tu apoyo nos permite seguir creando historias de éxito en nuestra comunidad.
                   </p>
-                  <Link to="/donar" className="block text-center py-3 bg-coral text-white rounded-full font-bold hover:bg-opacity-90 transition-all">
+                  <Link to="/donar" className="block text-center py-3 bg-coral text-white rounded-full font-bold hover:bg-opacity-90 transition-all shadow-lg">
                     Donar ahora
                   </Link>
-                </div>
-              </aside>
+                </motion.div>
+              </motion.aside>
             </div>
 
             {/* Related Stories */}
             <div className="mt-24 pt-16 border-t border-gray-100">
-              <h3 className="text-3xl font-serif text-sea mb-12">Otras Historias</h3>
+              <motion.h3 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-3xl font-serif text-sea mb-12"
+              >
+                Otras Historias
+              </motion.h3>
               <div className="grid md:grid-cols-2 gap-8">
                 {Object.entries(stories)
                   .filter(([key]) => key !== id)
                   .slice(0, 2)
-                  .map(([key, s]) => (
-                    <Link key={key} to={`/historias/${key}`} className="group">
-                      <div className="aspect-video rounded-2xl overflow-hidden mb-4">
-                        <img src={s.image} alt={s.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                      </div>
-                      <h4 className="text-xl font-serif text-sea group-hover:text-coral transition-colors">{s.title}</h4>
-                      <p className="text-gray-400 text-sm mt-2">{s.date}</p>
-                    </Link>
+                  .map(([key, s], i) => (
+                    <motion.div
+                      key={key}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.2 }}
+                    >
+                      <Link to={`/historias/${key}`} className="group">
+                        <div className="aspect-video rounded-2xl overflow-hidden mb-4 shadow-md">
+                          <motion.img 
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.5 }}
+                            src={s.image} 
+                            alt={s.title} 
+                            className="w-full h-full object-cover" 
+                          />
+                        </div>
+                        <h4 className="text-xl font-serif text-sea group-hover:text-coral transition-colors">{s.title}</h4>
+                        <p className="text-gray-400 text-sm mt-2">{s.date}</p>
+                      </Link>
+                    </motion.div>
                   ))}
               </div>
             </div>

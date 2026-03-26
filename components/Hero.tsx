@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
 
       <motion.div 
         style={{ opacity }}
-        className="container mx-auto px-4 md:px-8 relative z-10 pt-28 md:pt-0"
+        className="container mx-auto px-4 md:px-8 relative z-10 pt-32 md:pt-40"
       >
         <div className="max-w-4xl">
           <motion.h1 

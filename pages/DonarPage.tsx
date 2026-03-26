@@ -130,10 +130,13 @@ const DonarPage: React.FC = () => {
               
               <div className="mt-12 pt-8 border-t border-gray-200 text-center">
                 <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-4">Donación Segura</p>
-                <div className="flex justify-center gap-6 items-center opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Visa_2021.svg" alt="Visa" className="h-5" referrerPolicy="no-referrer" />
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-8" referrerPolicy="no-referrer" />
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="h-5" referrerPolicy="no-referrer" />
+                <div className="flex justify-center items-center opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500">
+                  <img 
+                    src="https://res.cloudinary.com/dr78wne7t/image/upload/v1774566258/Untitled_design_52_lenavp.png" 
+                    alt="Métodos de pago" 
+                    className="h-8 md:h-10 object-contain" 
+                    referrerPolicy="no-referrer" 
+                  />
                 </div>
               </div>
             </div>

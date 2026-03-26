@@ -71,7 +71,11 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="pt-12 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-400">
-          <div>&copy; {new Date().getFullYear()} Fundación Costa Palmas. Todos los derechos reservados.</div>
+          <div className="flex flex-col md:flex-row items-center gap-2">
+            <span>&copy; {new Date().getFullYear()} Fundación Costa Palmas. Todos los derechos reservados.</span>
+            <span className="hidden md:inline text-gray-200">|</span>
+            <span>Creado por <a href="https://motionagency.mx" target="_blank" rel="noopener noreferrer" className="hover:text-sea transition-colors font-medium">Motion Agency</a></span>
+          </div>
           <div className="flex gap-8">
             <a href="#" className="hover:text-sea transition-colors">Aviso de Privacidad</a>
             <a href="#" className="hover:text-sea transition-colors">Términos y Condiciones</a>
