@@ -4,38 +4,44 @@ import { Target, Eye, Heart, Users, History, Handshake } from 'lucide-react';
 import MissionVision from '../components/MissionVision';
 import ImpactStatsAbout from '../components/ImpactStatsAbout';
 import Partners from '../components/Partners';
+import StrategicPartners from '../components/StrategicPartners';
 import CTASection from '../components/CTASection';
 
 const team = [
   {
-    name: 'Karla Flores',
-    role: 'Directora de Comunidad y Fundación',
+    name: 'Pamela',
+    role: 'Asistente Administrativo',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774075551/Equipo-Organigrama-scaled_dwo5rt.png',
-    position: '0%'
-  },
-  {
-    name: 'Noemi Rosiles',
-    role: 'Gerente de Mercadotecnia, Relaciones Públicas y Recaudación',
-    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774075551/Equipo-Organigrama-scaled_dwo5rt.png',
-    position: '25%'
-  },
-  {
-    name: 'Sinahy Cota',
-    role: 'Coordinadora de Programas y Asistente Administrativo',
-    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774075551/Equipo-Organigrama-scaled_dwo5rt.png',
-    position: '50%'
+    position: '100%',
+    isSprite: true
   },
   {
     name: 'Carolina Cruz',
     role: 'Coordinadora de Operaciones',
-    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774075551/Equipo-Organigrama-scaled_dwo5rt.png',
-    position: '75%'
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292707/HS-FCP-5_x3i1vv.jpg',
+    position: '75%',
+    isSprite: false
   },
   {
-    name: 'Cinthia Flores',
-    role: 'Operadora de Programas',
-    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774075551/Equipo-Organigrama-scaled_dwo5rt.png',
-    position: '100%'
+    name: 'Karla Flores',
+    role: 'Directora de Comunidad y Fundación',
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292701/HS-FCP-8_eqdh7g.jpg',
+    position: '0%',
+    isSprite: false
+  },
+  {
+    name: 'Sinahy Cota',
+    role: 'Coordinadora de Programas',
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292701/HS-FCP-10_abttq9.jpg',
+    position: '50%',
+    isSprite: false
+  },
+  {
+    name: 'Brianda Estrada',
+    role: 'Maestra de Inglés',
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292701/HS-FCP-4_q5z4no.jpg',
+    position: '25%',
+    isSprite: false
   },
 ];
 
@@ -55,7 +61,7 @@ const NosotrosPage: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <motion.img 
             style={{ y }}
-            src="https://res.cloudinary.com/dr78wne7t/image/upload/v1774390865/301_uaa5nz.jpg" 
+            src="https://res.cloudinary.com/dr78wne7t/image/upload/v1776803156/CP_2025_FCP__GOLF_CAMP-24_xzeuki.jpg" 
             alt="Nosotros Hero" 
             className="w-full h-[130%] object-cover absolute top-0"
             referrerPolicy="no-referrer"
@@ -105,7 +111,7 @@ const NosotrosPage: React.FC = () => {
             </div>
             <div className="rounded-[2.5rem] overflow-hidden shadow-2xl relative group">
               <img 
-                src="https://res.cloudinary.com/dr78wne7t/image/upload/v1774041928/FOTO-NINAS-scaled_1_lw1phs.jpg" 
+                src="https://res.cloudinary.com/dr78wne7t/image/upload/v1776830899/CP_2025_FCP__GOLF_CAMP-38ff_u6drui.jpg" 
                 alt="Historia de la Fundación" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
@@ -148,12 +154,12 @@ const NosotrosPage: React.FC = () => {
               <div key={index} className="flex flex-col items-center group">
                 <div className="relative w-full aspect-[4/5] mb-8 overflow-hidden rounded-3xl bg-paper shadow-sm group-hover:shadow-2xl transition-all duration-500">
                   <div 
-                    className="w-[500%] h-full absolute top-0 transition-transform duration-700 group-hover:scale-110"
+                    className={`${member.isSprite ? 'w-[500%] absolute top-0' : 'w-full h-full'} transition-transform duration-700 group-hover:scale-110`}
                     style={{ 
                       backgroundImage: `url(${member.image})`,
                       backgroundSize: 'cover',
-                      backgroundPosition: `${member.position} center`,
-                      left: `-${parseInt(member.position) * 4}%`
+                      backgroundPosition: member.isSprite ? `${member.position} center` : 'center',
+                      left: member.isSprite ? `-${parseInt(member.position) * 4}%` : '0'
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-sea/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -182,6 +188,19 @@ const NosotrosPage: React.FC = () => {
             </p>
           </div>
           <Partners />
+        </div>
+      </section>
+
+      {/* Strategic Partners Section */}
+      <section className="py-24 bg-paper">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-serif text-sea mb-4">Socios Estratégicos</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Colaboramos con organizaciones clave para fortalecer nuestro compromiso con el desarrollo sostenible.
+            </p>
+          </div>
+          <StrategicPartners />
         </div>
       </section>
 

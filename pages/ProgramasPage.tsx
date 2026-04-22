@@ -18,16 +18,8 @@ const programs = [
     title: 'Medio Ambiente',
     subtitle: 'Impulsando el cuidado del medio ambiente e inspirando a los niños a proteger nuestros recursos naturales.',
     description: 'Cabo del Este posee una riqueza natural única que debemos preservar. Trabajamos de la mano con escuelas y familias para fomentar una cultura de respeto por la naturaleza. A través de jornadas de limpieza de playas, programas de reforestación y educación sobre la fauna local (como la protección de tortugas marinas), inspiramos a las nuevas generaciones a convertirse en guardianes de su entorno.',
-    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774043917/DJI_0447_eztgmz.jpg',
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776801241/Tortugas2_hcp6tv.jpg',
     color: 'bg-white'
-  },
-  {
-    id: 'bienestar',
-    title: 'Bienestar Comunitario',
-    subtitle: 'Fomentamos el bienestar a través de iniciativas de salud y prevención que mejoran la calidad de vida.',
-    description: 'La salud física y mental es la base de una comunidad próspera. Nuestro programa de Bienestar Comunitario organiza brigadas médicas, campañas de vacunación y talleres de nutrición. Además, promovemos la salud emocional a través de espacios de apoyo y actividades recreativas que fortalecen el tejido social y aseguran que nadie se quede atrás en el camino hacia una vida plena.',
-    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774393577/Gemini_Generated_Image_uuxvyyuuxvyyuuxv_nhlm2a.png',
-    color: 'bg-sea/5'
   },
   {
     id: 'salud-integral',
@@ -42,7 +34,7 @@ const programs = [
     title: 'Espacios que Transforman',
     subtitle: 'Mejoras en áreas públicas para crear un impacto a largo plazo.',
     description: 'Transformamos el entorno físico para mejorar la convivencia social. Identificamos espacios públicos en desuso o deteriorados y los rehabilitamos para convertirlos en parques, canchas deportivas o centros comunitarios vibrantes. Estas mejoras no solo embellecen la región, sino que proporcionan lugares seguros para el juego, el deporte y el encuentro ciudadano, generando un sentido de pertenencia y orgullo local.',
-    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774390865/biblioteca-51-1-scaled_pcxwgd.jpg',
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292725/Voluntariado_Popescu_pintando_kinder-012_syan92.jpg',
     color: 'bg-sea/5'
   }
 ];
@@ -63,7 +55,7 @@ const ProgramasPage: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <motion.img 
             style={{ y }}
-            src="https://res.cloudinary.com/dr78wne7t/image/upload/v1774390865/SANTIAGO-CLEANUP-39-scaled_eewtyy.jpg" 
+            src="https://res.cloudinary.com/dr78wne7t/image/upload/v1776292756/WhatsApp_Image_2025-12-10_at_4.59.28_PM_4_fl6uct.jpg" 
             alt="Programas Hero" 
             className="w-full h-[130%] object-cover absolute top-0"
             referrerPolicy="no-referrer"
@@ -105,7 +97,7 @@ const ProgramasPage: React.FC = () => {
             </h2>
             <div className="w-24 h-1.5 bg-coral mx-auto mb-10 rounded-full" />
             <p className="text-xl text-gray-600 leading-relaxed font-light">
-              En Fundación Costa Palmas, trabajamos para impulsar el bienestar de las comunidades y proteger el entorno natural de Cabo del Este. A través de nuestros cinco programas, promovemos el desarrollo social, la educación, la sostenibilidad y la conservación ambiental, generando un impacto positivo y duradero.
+              En Fundación Costa Palmas, trabajamos para impulsar el bienestar de las comunidades y proteger el entorno natural de Cabo del Este. A través de nuestros cuatro programas, promovemos el desarrollo social, la educación, la sostenibilidad y la conservación ambiental, generando un impacto positivo y duradero.
             </p>
           </motion.div>
         </div>
@@ -158,18 +150,14 @@ const ProgramasPage: React.FC = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                   >
-                    <span className="text-coral font-bold tracking-widest uppercase text-sm mb-4 block">Programa {index + 1}</span>
                     <h3 className="text-4xl md:text-5xl text-sea mb-6 font-serif">{program.title}</h3>
                     <p className="text-xl text-sea/80 font-medium mb-6 italic leading-snug">
                       "{program.subtitle}"
                     </p>
                     <div className="h-1 w-20 bg-coral mb-8" />
-                    <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                    <p className="text-gray-600 text-lg leading-relaxed">
                       {program.description}
                     </p>
-                    <button className="px-8 py-3 bg-sea text-white rounded-full font-bold hover:bg-sea/90 transition-all shadow-lg hover:shadow-xl">
-                      Saber más
-                    </button>
                   </motion.div>
                 </div>
               </div>

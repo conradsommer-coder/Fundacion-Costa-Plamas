@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState, useRef } from 'react';
-import { Users, Hand, Package, Settings, GraduationCap, Turtle } from 'lucide-react';
+import { Users, Heart, PawPrint, GraduationCap, Home } from 'lucide-react';
 import { motion, useInView, useSpring, useTransform } from 'motion/react';
 
 const Counter = ({ value }: { value: number }) => {
@@ -22,33 +22,28 @@ const Counter = ({ value }: { value: number }) => {
 
 const stats = [
   { 
-    value: 12230, 
-    label: 'Personas beneficiadas', 
+    value: 13223, 
+    label: 'Beneficiarios de espacios renovados', 
+    icon: Home 
+  },
+  { 
+    value: 5194, 
+    label: 'Salud integral', 
+    icon: Heart 
+  },
+  { 
+    value: 4948, 
+    label: 'Bienestar animal', 
+    icon: PawPrint 
+  },
+  { 
+    value: 3007, 
+    label: 'Cohesión social', 
     icon: Users 
   },
   { 
-    value: 3000, 
-    label: 'Horas de voluntariado', 
-    icon: Hand 
-  },
-  { 
-    value: 2500, 
-    label: 'Donativos en especie', 
-    icon: Package 
-  },
-  { 
-    value: 1800, 
-    label: 'Tortugas liberadas', 
-    icon: Turtle 
-  },
-  { 
-    value: 1756, 
-    label: 'm2 de espacios públicos renovados', 
-    icon: Settings 
-  },
-  { 
-    value: 1010, 
-    label: 'Horas educativas', 
+    value: 2854, 
+    label: 'Estudiantes en programas educativos', 
     icon: GraduationCap 
   },
 ];
@@ -57,13 +52,13 @@ const ImpactStats: React.FC = () => {
   return (
     <div className="container mx-auto px-4 md:px-8">
       <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl mb-4 text-white">Nuestro Impacto</h2>
+        <h2 className="text-4xl md:text-5xl mb-4 text-white">Nuestro impacto hasta el día de hoy</h2>
         <p className="text-white/80 max-w-2xl mx-auto">
           Cada cifra representa una vida transformada y un paso hacia un futuro más brillante para Cabo del Este.
         </p>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 md:gap-8">
+      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8">
         {stats.map((stat, index) => (
           <motion.div 
             key={index} 

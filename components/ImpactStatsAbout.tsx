@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { motion, useInView, useSpring, useTransform } from 'motion/react';
-import { Users, Hand, Package, Turtle, Settings, GraduationCap } from 'lucide-react';
+import { Users, Heart, PawPrint, GraduationCap, Home } from 'lucide-react';
 
 const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
   const ref = useRef(null);
@@ -22,33 +22,28 @@ const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => 
 
 const stats = [
   { 
-    value: 12230, 
-    label: 'Personas beneficiadas', 
+    value: 13223, 
+    label: 'Beneficiarios de espacios renovados', 
+    icon: Home,
+  },
+  { 
+    value: 5194, 
+    label: 'Salud integral', 
+    icon: Heart,
+  },
+  { 
+    value: 4948, 
+    label: 'Bienestar animal', 
+    icon: PawPrint,
+  },
+  { 
+    value: 3007, 
+    label: 'Cohesión social', 
     icon: Users,
   },
   { 
-    value: 3000, 
-    label: 'Horas de voluntariado', 
-    icon: Hand,
-  },
-  { 
-    value: 2500, 
-    label: 'Donativos en especie', 
-    icon: Package,
-  },
-  { 
-    value: 1800, 
-    label: 'Tortugas liberadas', 
-    icon: Turtle,
-  },
-  { 
-    value: 1756, 
-    label: 'm2 de espacios públicos renovados', 
-    icon: Settings,
-  },
-  { 
-    value: 1010, 
-    label: 'Horas educativas', 
+    value: 2854, 
+    label: 'Estudiantes en programas educativos', 
     icon: GraduationCap,
   },
 ];
@@ -65,8 +60,8 @@ const ImpactStatsAbout: React.FC = () => {
               viewport={{ once: true }}
             >
               <h2 className="text-5xl md:text-6xl font-serif text-sea mb-8 leading-tight">
-                Impacto en <br />
-                <span className="italic text-coral">Cifras</span>
+                Nuestro <span className="italic text-coral">impacto</span> <br />
+                hasta el día de hoy
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
                 Nuestra labor se traduce en resultados tangibles. Cada número cuenta una historia de compromiso y transformación en las comunidades de Cabo del Este.

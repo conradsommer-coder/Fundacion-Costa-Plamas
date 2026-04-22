@@ -22,32 +22,32 @@ const Region: React.FC = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-3 gap-4">
-          {locations.map((loc, index) => (
-            <div key={index} className="group relative aspect-[3/4] rounded-2xl overflow-hidden shadow-md">
-              <img 
-                src={loc.image} 
-                alt={loc.name} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-end p-4">
-                <span className="text-white font-bold text-sm md:text-base">{loc.name}</span>
-              </div>
-            </div>
-          ))}
+        <div className="rounded-3xl overflow-hidden shadow-xl border border-paper/10">
+          <img 
+            src="https://res.cloudinary.com/dr78wne7t/image/upload/v1774037190/MAPA-EN-ESPANOL_ftsgz1.png" 
+            alt="Mapa de Cabo del Este" 
+            className="w-full h-auto object-contain"
+            referrerPolicy="no-referrer"
+          />
         </div>
       </div>
 
-      <div className="rounded-3xl overflow-hidden shadow-2xl aspect-[21/9] bg-sea/5">
-        <video 
-          src="https://res.cloudinary.com/dr78wne7t/video/upload/v1774046737/Untitled_design_14_xbsv90.mp4" 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="w-full h-full object-cover"
-        />
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
+        {locations.map((loc, index) => (
+          <div key={index} className="group relative aspect-[16/10] sm:aspect-[3/4] rounded-2xl overflow-hidden shadow-md">
+            <img 
+              src={loc.image} 
+              alt={loc.name} 
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-end p-4">
+              <span className="text-white font-bold text-lg">{loc.name}</span>
+            </div>
+          </div>
+        ))}
       </div>
+
     </div>
   );
 };

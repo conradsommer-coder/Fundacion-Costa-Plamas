@@ -11,13 +11,8 @@ const programs = [
   },
   {
     title: 'Medio Ambiente',
-    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774043917/DJI_0447_eztgmz.jpg',
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776801241/Tortugas2_hcp6tv.jpg',
     href: '/programas#medio-ambiente'
-  },
-  {
-    title: 'Bienestar Comunitario',
-    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774393577/Gemini_Generated_Image_uuxvyyuuxvyyuuxv_nhlm2a.png',
-    href: '/programas#bienestar'
   },
   {
     title: 'Salud Integral',
@@ -26,7 +21,7 @@ const programs = [
   },
   {
     title: 'Espacios que Transforman',
-    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774390865/biblioteca-51-1-scaled_pcxwgd.jpg',
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292725/Voluntariado_Popescu_pintando_kinder-012_syan92.jpg',
     href: '/programas#espacios'
   },
 ];
@@ -34,23 +29,12 @@ const programs = [
 const ProgramsGrid: React.FC = () => {
   return (
     <div className="container mx-auto px-4 md:px-8">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl text-sea mb-4 font-serif">Cuidemos la Comunidad que nos Cuida</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          En Fundación Costa Palmas, trabajamos para impulsar el bienestar de las comunidades y proteger el entorno natural de Cabo del Este.
-        </p>
-      </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {programs.map((program, index) => (
           <Link 
             key={index} 
             to={program.href}
-            className={`group relative rounded-[2rem] overflow-hidden shadow-lg cursor-pointer block transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 ${
-              index < 2 
-                ? 'md:col-span-3 aspect-[16/10] md:aspect-[16/9]' 
-                : 'md:col-span-2 aspect-[4/5] md:aspect-[3/4]'
-            }`}
+            className="group relative rounded-[2.5rem] overflow-hidden shadow-lg cursor-pointer block transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 aspect-[16/10] md:aspect-[16/9]"
           >
             <img 
               src={program.image} 
@@ -59,9 +43,6 @@ const ProgramsGrid: React.FC = () => {
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 md:p-8">
-              <span className="text-coral text-xs font-bold tracking-widest uppercase mb-2 opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
-                Programa {index + 1}
-              </span>
               <h3 className="text-xl md:text-2xl lg:text-3xl text-white font-serif leading-tight transition-colors duration-300 group-hover:text-coral">
                 {program.title}
               </h3>

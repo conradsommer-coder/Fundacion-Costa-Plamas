@@ -1,9 +1,19 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Mail, Phone, MapPin, Send, User, MessageSquare, Heart } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'motion/react';
+import { useLocation } from 'react-router-dom';
 
 const ContactoPage: React.FC = () => {
+  const location = useLocation();
   const [activeForm, setActiveForm] = useState<'contacto' | 'voluntario'>('contacto');
+
+  useEffect(() => {
+    if (location.hash === '#voluntario') {
+      setActiveForm('voluntario');
+    } else {
+      setActiveForm('contacto');
+    }
+  }, [location.hash]);
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -19,7 +29,7 @@ const ContactoPage: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <motion.img 
             style={{ y }}
-            src="https://res.cloudinary.com/dr78wne7t/image/upload/v1774390865/301_uaa5nz.jpg" 
+            src="https://res.cloudinary.com/dr78wne7t/image/upload/v1774038417/josh-withers-7kgSDLFEp0g-unsplash_nsondu.jpg" 
             alt="Contacto Hero" 
             className="w-full h-[130%] object-cover absolute top-0"
             referrerPolicy="no-referrer"
@@ -69,8 +79,8 @@ const ContactoPage: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="font-bold text-sea text-lg">Email</h3>
-                      <a href="mailto:contacto@fundacioncostapalmas.org" className="text-gray-600 hover:text-coral transition-colors">
-                        contacto@fundacioncostapalmas.org
+                      <a href="mailto:fundacion@costapalmas.com" className="text-gray-600 hover:text-coral transition-colors">
+                        fundacion@costapalmas.com
                       </a>
                     </div>
                   </div>
@@ -80,7 +90,11 @@ const ContactoPage: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="font-bold text-sea text-lg">Teléfono</h3>
-                      <p className="text-gray-600">+52 (624) 123 4567</p>
+                      <div className="flex flex-col gap-1">
+                        <p className="text-gray-600">+52 624 122 4468</p>
+                        <p className="text-gray-600">+52 1 624 355 7285</p>
+                        <p className="text-gray-600">+52 1 624 237 6028</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -89,8 +103,7 @@ const ContactoPage: React.FC = () => {
               <div className="p-8 bg-paper rounded-[2.5rem] border border-gray-100">
                 <h3 className="text-xl font-bold text-sea mb-4">Horario de Atención</h3>
                 <p className="text-gray-600 text-sm">
-                  Lunes a Viernes: 9:00 AM - 5:00 PM<br />
-                  Sábados: 9:00 AM - 1:00 PM
+                  Lunes a Viernes: 9:00 AM - 5:00 PM
                 </p>
               </div>
             </div>

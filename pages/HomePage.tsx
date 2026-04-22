@@ -17,7 +17,7 @@ const HomePage: React.FC = () => {
         <Hero />
       </section>
 
-      <section id="nosotros" className="py-24 bg-white">
+      <section id="nosotros" className="pt-40 pb-24 bg-white">
         <About />
       </section>
 

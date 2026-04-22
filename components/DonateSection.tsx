@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { DollarSign, Package, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const waysToHelp = [
   {
@@ -8,18 +9,24 @@ const waysToHelp = [
     description: 'Tu aportación económica nos permite mantener y expandir nuestros programas de educación y salud.',
     icon: DollarSign,
     color: 'bg-coral/10 text-coral',
+    link: '/donar',
+    buttonText: 'Donar ahora'
   },
   {
     title: 'Donativo en Especie',
-    description: 'Recibimos materiales educativos, equipo médico y suministros que son entregados directamente a quienes los necesitan.',
+    description: 'Para fortalecimiento de infraestructura y equipamiento para espacios comunitarios y educativos en Cabo del Este.',
     icon: Package,
     color: 'bg-coral/10 text-coral',
+    link: '/contacto',
+    buttonText: 'Contactar'
   },
   {
     title: 'Voluntariado',
     description: 'Tu tiempo y talento son invaluables. Únete a nuestras brigadas y proyectos comunitarios.',
     icon: Users,
     color: 'bg-coral/10 text-coral',
+    link: '/contacto#voluntario',
+    buttonText: 'Unirme'
   },
 ];
 
@@ -40,12 +47,15 @@ const DonateSection: React.FC = () => {
               <way.icon className="w-8 h-8" />
             </div>
             <h3 className="text-2xl text-sea mb-4">{way.title}</h3>
-            <p className="text-gray-600 leading-relaxed mb-8">
+            <p className="text-gray-600 leading-relaxed mb-8 italic">
               {way.description}
             </p>
-            <button className="mt-auto text-sea font-bold border-b-2 border-sea/20 hover:border-sea transition-all pb-1">
-              Saber más
-            </button>
+            <Link 
+              to={way.link} 
+              className="mt-auto px-8 py-3 bg-sea text-white rounded-full font-bold hover:bg-sea/90 transition-all shadow-md hover:shadow-lg text-sm"
+            >
+              {way.buttonText}
+            </Link>
           </div>
         ))}
       </div>

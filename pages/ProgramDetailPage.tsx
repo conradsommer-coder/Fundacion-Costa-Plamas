@@ -27,8 +27,8 @@ const programData: Record<string, ProgramDetail> = {
     fullDescription: 'Nuestro programa educativo se enfoca en cerrar la brecha de oportunidades en Cabo del Este. Creemos que la educación es la herramienta más poderosa para el cambio social y económico. Trabajamos con escuelas locales, centros comunitarios y expertos para ofrecer programas que van desde la alfabetización básica hasta la capacitación técnica avanzada.',
     image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop',
     metrics: [
-      { label: 'Estudiantes beneficiados', value: '1,200+', icon: <Users className="w-6 h-6" /> },
-      { label: 'Talleres impartidos', value: '450', icon: <Target className="w-6 h-6" /> },
+      { label: 'Estudiantes beneficiados', value: '2,854', icon: <Users className="w-6 h-6" /> },
+      { label: 'Talleres impartidos', value: '450+', icon: <Target className="w-6 h-6" /> },
       { label: 'Tasa de graduación', value: '95%', icon: <TrendingUp className="w-6 h-6" /> },
     ],
     successStory: {
@@ -53,11 +53,11 @@ const programData: Record<string, ProgramDetail> = {
     title: 'Medio Ambiente',
     description: 'Impulsando el cuidado del medio ambiente e inspirando a los niños a proteger nuestros recursos naturales.',
     fullDescription: 'Cabo del Este posee una biodiversidad única que debemos proteger. Nuestro programa ambiental combina la conservación directa con la educación comunitaria. Desde la protección de tortugas marinas hasta la gestión de residuos, trabajamos para asegurar que las futuras generaciones hereden un entorno saludable y vibrante.',
-    image: 'https://images.unsplash.com/photo-1559027615-cd26735550b4?q=80&w=2067&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776801241/Tortugas2_hcp6tv.jpg',
     metrics: [
       { label: 'Área protegida (ha)', value: '500', icon: <Target className="w-6 h-6" /> },
       { label: 'Árboles plantados', value: '5,000+', icon: <TrendingUp className="w-6 h-6" /> },
-      { label: 'Tortugas liberadas', value: '10,000+', icon: <Heart className="w-6 h-6" /> },
+      { label: 'Bienestar animal', value: '4,948', icon: <Heart className="w-6 h-6" /> },
     ],
     successStory: {
       title: 'Guardianes del Mar',
@@ -76,43 +76,15 @@ const programData: Record<string, ProgramDetail> = {
       'Reducir el uso de plásticos en la comunidad.',
     ],
   },
-  'bienestar-comunitario': {
-    id: 'bienestar-comunitario',
-    title: 'Bienestar Comunitario',
-    description: 'Fomentamos el bienestar a través de iniciativas de salud y prevención que mejoran la calidad de vida.',
-    fullDescription: 'La salud y el bienestar son la base de una comunidad próspera. Nuestro programa de Bienestar Comunitario se enfoca en el acceso a servicios de salud preventivos, nutrición y apoyo emocional. Trabajamos para que cada miembro de la comunidad tenga las herramientas necesarias para vivir una vida plena y saludable.',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop',
-    metrics: [
-      { label: 'Consultas médicas', value: '2,500+', icon: <Users className="w-6 h-6" /> },
-      { label: 'Familias apoyadas', value: '800', icon: <Heart className="w-6 h-6" /> },
-      { label: 'Programas de nutrición', value: '12', icon: <Target className="w-6 h-6" /> },
-    ],
-    successStory: {
-      title: 'Salud para todos',
-      content: 'Gracias a las clínicas móviles, Don José pudo recibir tratamiento para su hipertensión sin tener que viajar largas distancias. Su calidad de vida ha mejorado significativamente.',
-      author: 'Don José, Beneficiario',
-    },
-    objectives: [
-      'Facilitar el acceso a clínicas móviles y servicios preventivos.',
-      'Promover la seguridad alimentaria mediante huertos comunitarios.',
-      'Ofrecer apoyo en salud mental y bienestar emocional.',
-      'Organizar campañas de vacunación y prevención de enfermedades.',
-    ],
-    howToHelp: [
-      'Donar suministros médicos básicos.',
-      'Apoyar con transporte para pacientes.',
-      'Voluntariado profesional en el área de salud.',
-    ],
-  },
   'espacios-que-transforman': {
     id: 'espacios-que-transforman',
     title: 'Espacios que Transforman',
     description: 'Mejoras en áreas públicas para crear un impacto a largo plazo.',
     fullDescription: 'Los espacios públicos son el corazón de la vida social. Nuestro programa "Espacios que Transforman" revitaliza parques, plazas y centros deportivos, convirtiéndolos en lugares seguros, hermosos y funcionales para el encuentro comunitario. Creemos que un entorno digno fomenta el orgullo y la cohesión social.',
-    image: 'https://images.unsplash.com/photo-1559027615-cd26735550b4?q=80&w=2067&auto=format&fit=crop',
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292725/Voluntariado_Popescu_pintando_kinder-012_syan92.jpg',
     metrics: [
       { label: 'Espacios renovados', value: '8', icon: <Target className="w-6 h-6" /> },
-      { label: 'Usuarios diarios', value: '1,500', icon: <Users className="w-6 h-6" /> },
+      { label: 'Beneficiarios totales', value: '13,223', icon: <Users className="w-6 h-6" /> },
       { label: 'Inversión comunitaria', value: '$2M+', icon: <TrendingUp className="w-6 h-6" /> },
     ],
     successStory: {

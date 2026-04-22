@@ -1,8 +1,25 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { Heart, ShieldCheck, TrendingUp, Users } from 'lucide-react';
+import { Heart, ShieldCheck, TrendingUp, Users, ExternalLink, Copy, Check } from 'lucide-react';
+import DonationModal from '../components/DonationModal';
 
 const DonarPage: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [copiedField, setCopiedField] = useState<string | null>(null);
+  
+  const copyToClipboard = (text: string, field: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedField(field);
+    setTimeout(() => setCopiedField(null), 2000);
+  };
+
+  const bankInfo = {
+    titular: 'Fundación Costa Palmas AC',
+    banco: 'Grupo Financiero Banorte',
+    cuenta: '1185854781',
+    clabe: '072 045 01185854781 0'
+  };
+
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -50,6 +67,21 @@ const DonarPage: React.FC = () => {
           >
             Cada donación, sin importar el tamaño, nos ayuda a construir un futuro más brillante para las comunidades de Cabo del Este.
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mt-10"
+          >
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="px-8 py-4 bg-white text-sea rounded-full font-bold uppercase tracking-widest hover:bg-paper transition-all hover:scale-105 shadow-xl inline-flex items-center gap-3"
+            >
+              <span>Formas para donar</span>
+              <ExternalLink className="w-5 h-5 text-coral" />
+            </button>
+          </motion.div>
         </div>
       </section>
 
@@ -59,7 +91,7 @@ const DonarPage: React.FC = () => {
             {/* Left Column: Information */}
             <div className="space-y-12">
               <div>
-                <h2 className="text-4xl font-bold text-sea mb-6">¿Por qué donar?</h2>
+                <h2 className="text-4xl font-bold text-sea mb-6 font-serif underline decoration-coral/30 decoration-8 underline-offset-8">¿Por qué donar?</h2>
                 <p className="text-gray-600 text-lg leading-relaxed">
                   Tu apoyo financiero nos permite mantener y expandir nuestros programas esenciales en educación, salud y conservación ambiental. Somos una organización transparente comprometida con el impacto real.
                 </p>
@@ -78,7 +110,7 @@ const DonarPage: React.FC = () => {
                     <TrendingUp className="w-6 h-6" />
                   </div>
                   <h3 className="text-xl font-bold text-sea mb-2">Impacto Directo</h3>
-                  <p className="text-gray-600 text-sm">El 90% de las donaciones van directamente a programas comunitarios.</p>
+                  <p className="text-gray-600 text-sm">Las donaciones van directamente a programas comunitarios.</p>
                 </div>
                 <div className="p-6 bg-paper rounded-3xl border border-gray-100">
                   <div className="w-12 h-12 bg-coral/10 text-coral rounded-xl flex items-center justify-center mb-4">
@@ -96,36 +128,87 @@ const DonarPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="p-8 bg-desert rounded-[2.5rem] border border-gray-200">
-                <h3 className="text-2xl font-bold text-sea mb-4 italic">Otras formas de ayudar</h3>
-                <p className="text-gray-700 mb-6">
-                  Si prefieres realizar una transferencia bancaria o donar en especie, por favor contáctanos directamente.
+              <div className="p-10 bg-desert rounded-[2.5rem] border border-gray-200 shadow-sm">
+                <h3 className="text-3xl font-bold text-sea mb-6 font-serif italic">Donativos Deducibles en México</h3>
+                <p className="text-gray-700 mb-8 leading-relaxed">
+                  Los donantes mexicanos pueden recibir un recibo deducible de impuestos al realizar una transferencia bancaria a la siguiente cuenta:
                 </p>
-                <a 
-                  href="mailto:contacto@fundacioncostapalmas.org" 
-                  className="inline-flex items-center gap-2 text-sea font-bold hover:underline"
-                >
-                  contacto@fundacioncostapalmas.org
-                </a>
+                
+                <div className="space-y-6 bg-white/50 backdrop-blur-sm p-8 rounded-3xl border border-white/60 mb-8">
+                  <div>
+                    <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-1">Banco</label>
+                    <p className="text-sea font-bold text-xl">{bankInfo.banco}</p>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="relative group">
+                      <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-1">Cuenta en Pesos</label>
+                      <div className="flex items-center gap-2">
+                        <p className="text-sea font-mono font-bold text-lg">{bankInfo.cuenta}</p>
+                        <button 
+                          onClick={() => copyToClipboard(bankInfo.cuenta, 'cuenta_p')}
+                          className="text-coral hover:scale-110 transition-transform p-1"
+                        >
+                          {copiedField === 'cuenta_p' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                        </button>
+                      </div>
+                    </div>
+                    <div className="relative group">
+                      <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-1">CLABE</label>
+                      <div className="flex items-center gap-2">
+                        <p className="text-sea font-mono font-bold text-lg">{bankInfo.clabe}</p>
+                        <button 
+                          onClick={() => copyToClipboard(bankInfo.clabe, 'clabe_p')}
+                          className="text-coral hover:scale-110 transition-transform p-1"
+                        >
+                          {copiedField === 'clabe_p' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 flex flex-col md:flex-row items-center gap-6">
+                  <button 
+                    onClick={() => setIsModalOpen(true)}
+                    className="w-full md:w-auto px-10 py-5 bg-sea text-white rounded-full font-bold text-lg hover:bg-opacity-90 transition-all hover:scale-105 shadow-xl flex items-center justify-center gap-3"
+                  >
+                    <span>Ver Formas de Donar</span>
+                    <ExternalLink className="w-5 h-5" />
+                  </button>
+                  <div className="flex flex-col">
+                    <p className="text-gray-600 text-sm mb-1">
+                      Si requieres un recibo deducible envía un correo a:
+                    </p>
+                    <a 
+                      href="mailto:fundacion@costapalmas.com" 
+                      className="text-lg font-bold text-coral hover:bg-white inline-block border-b-2 border-coral transition-colors"
+                    >
+                      fundacion@costapalmas.com
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Right Column: Donation Form */}
-            <div className="bg-paper p-8 md:p-12 rounded-[3rem] shadow-xl border border-gray-100 sticky top-32">
+            {/* Right Column: Donation Form Container */}
+            <div className="bg-paper p-8 md:p-12 rounded-[3rem] shadow-xl border border-gray-100 sticky top-32 overflow-hidden">
               <div className="text-center mb-8">
                 <h3 className="text-3xl font-bold text-sea mb-2">Haz tu donación</h3>
-                <p className="text-gray-500">Seguro y rápido a través de nuestra plataforma</p>
-              </div>
-              
-              <div className="flex justify-center">
-                <a 
-                  href="https://azclftch.donorsupport.co/-/XATEBFMG"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-12 py-5 bg-coral text-white rounded-full font-bold text-lg hover:bg-opacity-90 transition-all hover:scale-105"
-                >
-                  Donar Ahora
-                </a>
+                <p className="text-gray-500 mb-6">Seguro y rápido a través de nuestra plataforma</p>
+                
+                {/* Fundraise Up Embedded Form */}
+                <div className="min-h-[400px] mb-8 bg-white rounded-2xl p-2 relative">
+                   <a href="#XMRYFKPU" data-fundraise-up-embed></a>
+                </div>
+
+                <div className="flex flex-col items-center gap-4">
+                  <button 
+                    onClick={() => setIsModalOpen(true)}
+                    className="w-full text-center px-12 py-5 bg-paper text-sea border-2 border-sea rounded-full font-bold text-lg hover:bg-sea hover:text-white transition-all hover:scale-105"
+                  >
+                    Otras formas (Transferencia)
+                  </button>
+                </div>
               </div>
               
               <div className="mt-12 pt-8 border-t border-gray-200 text-center">
@@ -143,6 +226,8 @@ const DonarPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <DonationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </main>
   );
 };

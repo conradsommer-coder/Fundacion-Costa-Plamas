@@ -2,10 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const partners = [
-  { name: 'Costa Palmas', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774050649/1.-costa-palmas_rk5gae.png' },
-  { name: 'Red Autismo', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774050645/LOGO-RED-AUTISMO-r4gvgm829i3jxgng974uoi8y8029gp2hp2ncf4acxs_li91i4.png' },
-  { name: 'Amigos de los Animales', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774050646/LOGO-AMIGOS-ANIMALES-r4gvgjejozzoymrjpnwyz0ykfug5tlraooovzaejgg_gvwlrl.png' },
-  { name: 'Aliado 4', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774050645/images_1_bivquk.png' },
+  { name: 'CROC', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292707/logo_croc_vrah64.png' },
+  { name: 'UABCS', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776815050/logo-universidad-autonoma-de-baja-california-sur_gnvjqv.webp' },
+  { name: 'CRIT', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292690/color_v_kawyay.png' },
+  { name: 'Corazón de Niño', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292710/Logo-ACDN-pantalla_s0i8bf.png' },
+  { name: 'Red Autismo', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292719/RA-Logotipo_byb59e.png' },
+  { name: 'ZOFEMAT', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292690/ZOFEMAT_wlr8ua.jpg' },
+  { name: 'Aliado', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292690/607962733_122095581807203157_1272613460739661110_n_yoh1cu.jpg' },
+  { name: 'Aliado 2', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292711/logo_ra4o3f.png' },
 ];
 
 const Partners: React.FC = () => {

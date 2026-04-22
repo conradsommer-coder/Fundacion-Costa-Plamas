@@ -17,7 +17,7 @@ const MissionVision: React.FC = () => {
     },
     {
       title: 'Valores',
-      description: 'Integridad, Colaboración, Sostenibilidad y Respeto por nuestra tierra y nuestra gente son los pilares que guían cada una de nuestras acciones.',
+      description: 'Colaboración, excelencia, resiliencia, corresponsabilidad y respeto son los pilares que guían cada una de nuestras acciones.',
       icon: Heart,
       color: 'bg-coral/10 text-coral',
     },
@@ -25,6 +25,10 @@ const MissionVision: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 md:px-8">
+      <div className="text-center mb-16">
+        <p className="text-coral font-bold uppercase tracking-widest text-sm mb-4">Nuestra Esencia</p>
+        <h2 className="text-4xl md:text-5xl text-sea">Nuestro Propósito</h2>
+      </div>
       <div className="grid md:grid-cols-3 gap-8">
         {items.map((item, index) => (
           <div key={index} className="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center text-center group">

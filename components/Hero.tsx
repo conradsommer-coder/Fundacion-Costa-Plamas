@@ -15,14 +15,14 @@ const Hero: React.FC = () => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   return (
-    <div ref={containerRef} className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
+    <div ref={containerRef} className="relative h-screen min-h-[700px] flex items-start overflow-hidden">
       {/* Background with high-quality landscape and Parallax */}
       <motion.div 
         style={{ y, scale }}
         className="absolute inset-0 z-0"
       >
         <img 
-          src="https://res.cloudinary.com/dr78wne7t/image/upload/v1774038417/josh-withers-7kgSDLFEp0g-unsplash_nsondu.jpg" 
+          src="https://res.cloudinary.com/dr78wne7t/image/upload/v1776292722/SANTIAGO_CLEANUP-39_nf45u6.jpg" 
           alt="Cabo del Este Landscape" 
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
