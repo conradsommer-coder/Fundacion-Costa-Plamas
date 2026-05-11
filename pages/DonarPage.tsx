@@ -66,6 +66,8 @@ const DonarPage: React.FC = () => {
             className="text-xl md:text-2xl max-w-3xl mx-auto font-light"
           >
             Cada donación, sin importar el tamaño, nos ayuda a construir un futuro más brillante para las comunidades de Cabo del Este.
+            <br />
+            <span className="text-sm mt-4 inline-block italic text-white/80">Sus donativos son deducibles de impuestos tanto en México como en EE. UU. (vía ICF).</span>
           </motion.p>
 
           <motion.div

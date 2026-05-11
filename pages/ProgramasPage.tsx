@@ -8,32 +8,32 @@ const programs = [
   {
     id: 'educacion',
     title: 'Educación',
-    subtitle: 'Empoderando a nuestra comunidad a través de talleres y capacitación.',
-    description: 'Creemos que la educación es el motor del cambio. Nuestro programa se enfoca en brindar herramientas prácticas y conocimientos técnicos a jóvenes y adultos de Cabo del Este. Desde talleres de oficios hasta capacitaciones en habilidades digitales, buscamos que cada individuo tenga la oportunidad de alcanzar su máximo potencial y contribuir al desarrollo económico de su familia y comunidad.',
+    subtitle: 'Acceso que abre puertas. Continuidad que construye futuro.',
+    description: 'Impulsamos el desarrollo educativo para abrir oportunidades y fortalecer el futuro de la comunidad en Cabo del Este, donde factores como la distancia, la falta de recursos y el acompañamiento limitado dificultan la continuidad escolar. Nuestro enfoque no es solo facilitar el acceso, sino asegurar que niñas, niños y jóvenes puedan avanzar en su formación mediante continuidad educativa, desarrollo de habilidades, acceso a herramientas y acompañamiento constante, generando así oportunidades reales a largo plazo.',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774036983/DSC00965_nzdx6q.jpg',
     color: 'bg-sea/5'
   },
   {
     id: 'medio-ambiente',
     title: 'Medio Ambiente',
-    subtitle: 'Impulsando el cuidado del medio ambiente e inspirando a los niños a proteger nuestros recursos naturales.',
-    description: 'Cabo del Este posee una riqueza natural única que debemos preservar. Trabajamos de la mano con escuelas y familias para fomentar una cultura de respeto por la naturaleza. A través de jornadas de limpieza de playas, programas de reforestación y educación sobre la fauna local (como la protección de tortugas marinas), inspiramos a las nuevas generaciones a convertirse en guardianes de su entorno.',
+    subtitle: 'Cuidar el entorno es cuidar la vida que lo habita',
+    description: 'Protegemos el entorno natural y promovemos una convivencia responsable entre comunidad, fauna y mascotas en Cabo del Este, donde el crecimiento de la zona hace necesario mantener un equilibrio entre desarrollo y conservación. Buscamos generar entornos seguros y sostenibles mediante acciones que fomenten el cuidado de la fauna local, la responsabilidad en el manejo de mascotas, la conservación del entorno y la colaboración con aliados que fortalecen el bienestar ambiental y comunitario.',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776801241/Tortugas2_hcp6tv.jpg',
     color: 'bg-white'
   },
   {
     id: 'salud-integral',
     title: 'Salud Integral',
-    subtitle: 'Brindando atención médica especializada y preventiva para transformar vidas.',
-    description: 'Nuestro programa de Salud Integral se enfoca en brindar atención médica especializada y preventiva a quienes más lo necesitan. A través de alianzas estratégicas, como el programa "Corazón de Niño", facilitamos diagnósticos, tratamientos y cirugías que salvan vidas, asegurando que cada niño y adulto en nuestra comunidad tenga acceso a una salud de calidad y un futuro prometedor.',
+    subtitle: 'La salud comienza con el acceso adecuado',
+    description: 'Facilitamos el acceso a servicios de salud y bienestar en Cabo del Este, donde para muchas familias recibir atención oportuna puede representar un reto. Por ello, buscamos que cada persona pueda acceder a la atención que necesita en el momento adecuado, a través de la vinculación y canalización con instituciones y aliados especializados, el acompañamiento durante los procesos de atención y el acceso a información y recursos que contribuyen a su bienestar.',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774042414/Corazon-de-nin%CC%83o-Enero-35_zkpeel.jpg',
     color: 'bg-white'
   },
   {
     id: 'espacios',
     title: 'Espacios que Transforman',
-    subtitle: 'Mejoras en áreas públicas para crear un impacto a largo plazo.',
-    description: 'Transformamos el entorno físico para mejorar la convivencia social. Identificamos espacios públicos en desuso o deteriorados y los rehabilitamos para convertirlos en parques, canchas deportivas o centros comunitarios vibrantes. Estas mejoras no solo embellecen la región, sino que proporcionan lugares seguros para el juego, el deporte y el encuentro ciudadano, generando un sentido de pertenencia y orgullo local.',
+    subtitle: 'Los espacios también transforman la forma en que aprendemos y convivimos.',
+    description: 'Fortalecemos espacios educativos y comunitarios en Cabo del Este, reconociendo que el entorno influye directamente en cómo aprendemos y vivimos en comunidad. Contar con espacios funcionales, seguros y adecuados es clave tanto para el desarrollo educativo como para el uso activo y ordenado de los espacios públicos. Por ello, trabajamos en la mejora, mantenimiento y adecuación de infraestructura existente, así como en su equipamiento y en la colaboración con aliados, para asegurar entornos que favorezcan el aprendizaje y promuevan una convivencia más segura y sostenible.',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292725/Voluntariado_Popescu_pintando_kinder-012_syan92.jpg',
     color: 'bg-sea/5'
   }
@@ -97,7 +97,7 @@ const ProgramasPage: React.FC = () => {
             </h2>
             <div className="w-24 h-1.5 bg-coral mx-auto mb-10 rounded-full" />
             <p className="text-xl text-gray-600 leading-relaxed font-light">
-              En Fundación Costa Palmas, trabajamos para impulsar el bienestar de las comunidades y proteger el entorno natural de Cabo del Este. A través de nuestros cuatro programas, promovemos el desarrollo social, la educación, la sostenibilidad y la conservación ambiental, generando un impacto positivo y duradero.
+              En Fundación Costa Palmas, trabajamos para impulsar el bienestar de las comunidades y proteger el entorno natural de Cabo del Este. A través de nuestros programas, promovemos el desarrollo social, la educación, la sostenibilidad y la conservación ambiental, generando un impacto positivo y duradero.
             </p>
           </motion.div>
         </div>

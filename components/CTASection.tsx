@@ -16,6 +16,9 @@ const CTASection: React.FC = () => {
           <p className="text-xl text-white/90 leading-relaxed">
             Tu apoyo es fundamental para seguir construyendo un futuro próspero en Cabo del Este. Únete a nuestra causa hoy mismo.
           </p>
+          <p className="mt-4 text-white/70 italic text-sm">
+            Sus donativos son deducibles de impuestos tanto en México como en EE. UU. (vía ICF).
+          </p>
         </div>
         
         <div className="max-w-2xl mx-auto">

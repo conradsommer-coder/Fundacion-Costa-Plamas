@@ -11,11 +11,18 @@ const stories = [
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774390865/SANTIAGO-CLEANUP-39-scaled_eewtyy.jpg',
   },
   {
-    id: 're-inauguracion-cancha',
-    title: 'Re-inauguración de la cancha de usos múltiples',
-    date: '17 Abr 2025',
-    category: 'Comunidad',
-    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774390865/biblioteca-51-1-scaled_pcxwgd.jpg',
+    id: 'diagnostico-corazon',
+    title: 'Un diagnóstico a tiempo puede cambiarlo todo',
+    date: '08 May 2026',
+    category: 'Salud',
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1778195693/Corazon-de-nin%CC%83o-Enero-14_hiedwq.jpg',
+  },
+  {
+    id: 'becas-uabcs',
+    title: 'Invertir en educación es invertir en el futuro de la comunidad',
+    date: '08 May 2026',
+    category: 'Educación',
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1778195691/DSC02253_e2kb92.jpg',
   },
   {
     id: 'campana-vacunacion',

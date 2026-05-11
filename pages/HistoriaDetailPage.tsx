@@ -20,21 +20,34 @@ const stories = {
       <p>Nuestras brigadas de limpieza y mantenimiento trabajan semanalmente para asegurar que los senderos y áreas de anidación permanezcan libres de residuos. Además, hemos iniciado un programa de educación en escuelas locales para que los niños comprendan el valor de su entorno natural.</p>
     `
   },
-  're-inauguracion-cancha': {
-    title: 'Re-inauguración de la cancha de usos múltiples',
-    date: '17 Abr 2025',
-    category: 'Comunidad',
-    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774390865/biblioteca-51-1-scaled_pcxwgd.jpg',
+  'diagnostico-corazon': {
+    title: 'Un diagnóstico a tiempo puede cambiarlo todo',
+    date: '08 May 2026',
+    category: 'Salud',
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1778195693/Corazon-de-nin%CC%83o-Enero-14_hiedwq.jpg',
     content: `
-      <p>El deporte y la recreación son pilares del bienestar comunitario. Con gran entusiasmo, celebramos la re-inauguración de la cancha de usos múltiples, un espacio diseñado para el encuentro, el juego y el sano esparcimiento de niños, jóvenes y adultos.</p>
-      
-      <p>Este proyecto fue posible gracias a la colaboración entre la Fundación, las autoridades locales y los propios vecinos, quienes participaron activamente en las jornadas de rehabilitación. La nueva cancha cuenta con iluminación LED, tableros nuevos y un recubrimiento especial de alta durabilidad.</p>
-      
-      <p>Durante el evento de inauguración, contamos con la presencia de familias de toda la región, quienes disfrutaron de un torneo relámpago de básquetbol y actividades recreativas para los más pequeños. Fue un día lleno de alegría y convivencia que nos recordó la importancia de contar con espacios públicos de calidad.</p>
-      
-      <p>Más que una obra de infraestructura, este espacio representa nuestro compromiso con el fortalecimiento del tejido social. Aquí se forjarán amistades, se aprenderán valores de trabajo en equipo y se promoverá un estilo de vida saludable para todos.</p>
-      
-      <p>Agradecemos a todos los que hicieron posible este sueño. Seguiremos trabajando para transformar más espacios y crear más oportunidades para nuestra comunidad en Cabo del Este.</p>
+      <p>Para muchas familias en Cabo del Este, una consulta con un especialista no siempre está al alcance. Y cuando se trata del corazón, el tiempo es clave.</p>
+      <p>Con esta realidad en mente, Fundación Costa Palmas, en alianza con Corazón de Niño, impulsó un programa de detección de cardiopatías pediátricas en La Ribera, enfocado en niñas, niños y adolescentes de 0 a 18 años.</p>
+      <p>A través de seis meses de trabajo y mediante un proceso que incluyó desde la detección en escuelas hasta valoraciones médicas especializadas, el programa logró acercar estos servicios a la comunidad.</p>
+      <p>En total, 447 niñas, niños y adolescentes fueron tamizados, de los cuales 81 fueron citados para evaluación y 58 recibieron atención médica especializada.</p>
+      <p>Estos resultados reflejan la importancia de detectar a tiempo, especialmente porque detrás de cada número hay una historia que pudo haber pasado desapercibida.</p>
+      <p>Kimberly, de 18 años, fue una de las jóvenes identificadas durante el proceso. Hoy se encuentra en evaluación para definir si requiere un procedimiento especializado. Obed, de 17 años, fue diagnosticado con una condición congénita que necesita seguimiento para prevenir complicaciones en el futuro. Dante, de 13 años, continúa en estudio por una posible arritmia, bajo monitoreo médico.</p>
+      <p>Historias como estas reflejan el valor de acercar la salud a la comunidad. Además, el programa permitió detectar otras condiciones que también requieren atención, ampliando su impacto más allá de su objetivo inicial.</p>
+      <p>Este esfuerzo fue posible gracias al trabajo conjunto de especialistas, personal médico local y aliados estratégicos, demostrando que cuando el acceso, la detección y el acompañamiento se alinean, el impacto es real.</p>
+    `
+  },
+  'becas-uabcs': {
+    title: 'Invertir en educación es invertir en el futuro de la comunidad',
+    date: '08 May 2026',
+    category: 'Educación',
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1778195691/DSC02253_e2kb92.jpg',
+    content: `
+      <p>En Cabo del Este, acceder a la educación superior es un paso importante, pero no siempre es fácil mantenerse en ella. Para muchos jóvenes, continuar sus estudios implica enfrentar retos económicos que pueden poner en pausa su formación.</p>
+      <p>Con esta realidad en mente, Fundación Costa Palmas, en colaboración con la Universidad Autónoma de Baja California Sur – Campus La Ribera, impulsó el Programa de Becas Costa Palmas, una iniciativa enfocada en apoyar a estudiantes universitarios de la región.</p>
+      <p>A través de la firma de este convenio, se fortalece el compromiso por generar más oportunidades educativas para jóvenes de la comunidad, facilitando su permanencia en la educación superior.</p>
+      <p>Actualmente, 22 de los 34 estudiantes del campus La Ribera reciben la Beca Costa Palmas, un apoyo que les permite continuar con sus estudios y avanzar en la construcción de su futuro profesional.</p>
+      <p>Más allá del apoyo económico, este programa representa una apuesta por el talento local y por el desarrollo a largo plazo de la región.</p>
+      <p>Porque cuando un joven continúa su educación, no solo cambia su futuro. También transforma el de su comunidad.</p>
     `
   },
   'campana-vacunacion': {

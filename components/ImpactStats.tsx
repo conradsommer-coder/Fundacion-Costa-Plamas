@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState, useRef } from 'react';
-import { Users, Heart, PawPrint, GraduationCap, Home } from 'lucide-react';
+import { Users, Heart, PawPrint, GraduationCap, Home, TreePine } from 'lucide-react';
 import { motion, useInView, useSpring, useTransform } from 'motion/react';
 
 const Counter = ({ value }: { value: number }) => {
@@ -22,9 +22,9 @@ const Counter = ({ value }: { value: number }) => {
 
 const stats = [
   { 
-    value: 13223, 
-    label: 'Beneficiarios de espacios renovados', 
-    icon: Home 
+    value: 2854, 
+    label: 'Estudiantes en programas educativos', 
+    icon: GraduationCap 
   },
   { 
     value: 5194, 
@@ -37,14 +37,19 @@ const stats = [
     icon: PawPrint 
   },
   { 
+    value: 13223, 
+    label: 'Beneficiarios de espacios renovados', 
+    icon: Home 
+  },
+  { 
+    value: 3450, 
+    label: 'Conservación ambiental', 
+    icon: TreePine 
+  },
+  { 
     value: 3007, 
     label: 'Cohesión social', 
     icon: Users 
-  },
-  { 
-    value: 2854, 
-    label: 'Estudiantes en programas educativos', 
-    icon: GraduationCap 
   },
 ];
 
@@ -58,7 +63,7 @@ const ImpactStats: React.FC = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8">
+      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 md:gap-8">
         {stats.map((stat, index) => (
           <motion.div 
             key={index} 

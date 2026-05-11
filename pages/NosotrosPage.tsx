@@ -11,9 +11,9 @@ const team = [
   {
     name: 'Pamela',
     role: 'Asistente Administrativo',
-    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774075551/Equipo-Organigrama-scaled_dwo5rt.png',
-    position: '100%',
-    isSprite: true
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292701/HS-FCP-4_q5z4no.jpg',
+    position: '0%',
+    isSprite: false
   },
   {
     name: 'Carolina Cruz',
@@ -34,13 +34,6 @@ const team = [
     role: 'Coordinadora de Programas',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292701/HS-FCP-10_abttq9.jpg',
     position: '50%',
-    isSprite: false
-  },
-  {
-    name: 'Brianda Estrada',
-    role: 'Maestra de Inglés',
-    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292701/HS-FCP-4_q5z4no.jpg',
-    position: '25%',
     isSprite: false
   },
 ];
@@ -96,7 +89,7 @@ const NosotrosPage: React.FC = () => {
               <div className="w-12 h-12 bg-terracotta/10 text-terracotta rounded-xl flex items-center justify-center mb-6">
                 <History className="w-6 h-6" />
               </div>
-              <h2 className="text-4xl font-serif text-sea mb-8">Historia de la Fundación</h2>
+              <h2 className="text-4xl font-serif text-sea mb-8">¿Quiénes somos?</h2>
               <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
                 <p>
                   Fundación Costa Palmas nació de una visión compartida por preservar la belleza natural de Cabo del Este y, al mismo tiempo, fomentar el bienestar de sus habitantes.
@@ -111,8 +104,8 @@ const NosotrosPage: React.FC = () => {
             </div>
             <div className="rounded-[2.5rem] overflow-hidden shadow-2xl relative group">
               <img 
-                src="https://res.cloudinary.com/dr78wne7t/image/upload/v1776830899/CP_2025_FCP__GOLF_CAMP-38ff_u6drui.jpg" 
-                alt="Historia de la Fundación" 
+                src="https://res.cloudinary.com/dr78wne7t/image/upload/v1778195835/DSC_0767_1_oidq9v.jpg" 
+                alt="¿Quiénes somos?" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
@@ -149,7 +142,7 @@ const NosotrosPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {team.map((member, index) => (
               <div key={index} className="flex flex-col items-center group">
                 <div className="relative w-full aspect-[4/5] mb-8 overflow-hidden rounded-3xl bg-paper shadow-sm group-hover:shadow-2xl transition-all duration-500">
@@ -182,7 +175,7 @@ const NosotrosPage: React.FC = () => {
             <div className="w-12 h-12 bg-terracotta/10 text-terracotta rounded-xl flex items-center justify-center mx-auto mb-6">
               <Handshake className="w-6 h-6" />
             </div>
-            <h2 className="text-4xl font-serif text-sea mb-4">Personas que Apoyan / Aliados</h2>
+            <h2 className="text-4xl font-serif text-sea mb-4">Aliados</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Gracias al apoyo de nuestros aliados, podemos multiplicar nuestro impacto en la comunidad.
             </p>
@@ -191,16 +184,29 @@ const NosotrosPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Strategic Partners Section */}
+      {/* Comunidad Costa Palmas Section */}
       <section className="py-24 bg-paper">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif text-sea mb-4">Socios Estratégicos</h2>
+            <h2 className="text-4xl font-serif text-sea mb-4">Comunidad Costa Palmas</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Colaboramos con organizaciones clave para fortalecer nuestro compromiso con el desarrollo sostenible.
+              Nuestras unidades de negocio comprometidas con el desarrollo integral de la región.
             </p>
           </div>
-          <StrategicPartners />
+          <StrategicPartners type="community" />
+        </div>
+      </section>
+
+      {/* Aliados Estratégicos Section */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-serif text-sea mb-4">Aliados Estratégicos</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Organizaciones y empresas que impulsan nuestra misión a través de su generoso apoyo.
+            </p>
+          </div>
+          <StrategicPartners type="allies" />
         </div>
       </section>
 

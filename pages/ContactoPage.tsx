@@ -93,7 +93,6 @@ const ContactoPage: React.FC = () => {
                       <div className="flex flex-col gap-1">
                         <p className="text-gray-600">+52 624 122 4468</p>
                         <p className="text-gray-600">+52 1 624 355 7285</p>
-                        <p className="text-gray-600">+52 1 624 237 6028</p>
                       </div>
                     </div>
                   </div>

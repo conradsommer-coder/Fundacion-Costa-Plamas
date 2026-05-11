@@ -42,10 +42,7 @@ const HomePage: React.FC = () => {
       <section className="py-24 bg-paper">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl text-sea mb-4">Nuestros Aliados</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Trabajamos de la mano con organizaciones y empresas que comparten nuestro compromiso con Cabo del Este.
-            </p>
+            <h2 className="text-4xl md:text-5xl text-sea uppercase font-serif tracking-tight">Nuestros Aliados</h2>
           </div>
           <Partners />
         </div>

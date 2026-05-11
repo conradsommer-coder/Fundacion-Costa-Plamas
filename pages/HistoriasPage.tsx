@@ -20,7 +20,7 @@ const HistoriasPage: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <motion.img 
             style={{ y }}
-            src="https://res.cloudinary.com/dr78wne7t/image/upload/v1774391185/mohd-lazim-ath-thany-bin-mohd-lazim-ddg3sq9lnk0-unsplash_aj2j6j.jpg" 
+            src="https://res.cloudinary.com/dr78wne7t/image/upload/v1778195702/Red-Autismo-2026-26_vplp1e.jpg" 
             alt="Historias Hero" 
             className="w-full h-[130%] object-cover absolute top-0"
             referrerPolicy="no-referrer"
