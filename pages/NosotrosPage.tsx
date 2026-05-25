@@ -9,7 +9,7 @@ import CTASection from '../components/CTASection';
 
 const team = [
   {
-    name: 'Pamela',
+    name: 'Pamela Sandoval',
     role: 'Asistente Administrativo',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292701/HS-FCP-4_q5z4no.jpg',
     position: '0%',
@@ -23,7 +23,7 @@ const team = [
     isSprite: false
   },
   {
-    name: 'Karla Flores',
+    name: 'Karla F. Espino',
     role: 'Directora de Comunidad y Fundación',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292701/HS-FCP-8_eqdh7g.jpg',
     position: '0%',
@@ -31,7 +31,7 @@ const team = [
   },
   {
     name: 'Sinahy Cota',
-    role: 'Coordinadora de Programas',
+    role: 'Coordinadora Administrativa y Programas',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292701/HS-FCP-10_abttq9.jpg',
     position: '50%',
     isSprite: false
@@ -190,7 +190,7 @@ const NosotrosPage: React.FC = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-serif text-sea mb-4">Comunidad Costa Palmas</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Nuestras unidades de negocio comprometidas con el desarrollo integral de la región.
+              Comprometidas con el desarrollo integral de la región.
             </p>
           </div>
           <StrategicPartners type="community" />

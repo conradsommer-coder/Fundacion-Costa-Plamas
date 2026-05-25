@@ -72,7 +72,7 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
                 </div>
 
                 <p className="text-gray-600 mb-8 leading-relaxed font-light text-sm">
-                  Deducibles de impuestos al realizar una transferencia bancaria a la siguiente cuenta:
+                  Para obtener un recibo deducible en México
                 </p>
 
                 <div className="space-y-6 bg-paper p-8 rounded-[2rem] border border-gray-100 shadow-inner">
@@ -136,7 +136,7 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
                 </div>
 
                 <p className="text-gray-600 mb-8 leading-relaxed font-light text-sm">
-                  Las donaciones realizadas desde Estados Unidos son elegibles para un recibo deducible de impuestos a través de ICF.
+                  Para obtener un recibo deducible en EE.UU
                 </p>
 
                 <div className="space-y-4 bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm">

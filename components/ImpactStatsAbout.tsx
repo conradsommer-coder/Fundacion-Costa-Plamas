@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { motion, useInView, useSpring, useTransform } from 'motion/react';
-import { Users, Heart, PawPrint, GraduationCap, Home } from 'lucide-react';
+import { Users, Heart, PawPrint, GraduationCap, Home, TreePine } from 'lucide-react';
 
 const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
   const ref = useRef(null);
@@ -35,6 +35,11 @@ const stats = [
     value: 4948, 
     label: 'Bienestar animal', 
     icon: PawPrint,
+  },
+  { 
+    value: 3450, 
+    label: 'Conservación ambiental', 
+    icon: TreePine,
   },
   { 
     value: 3007, 

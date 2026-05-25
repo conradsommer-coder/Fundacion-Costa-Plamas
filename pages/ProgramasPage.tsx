@@ -97,7 +97,7 @@ const ProgramasPage: React.FC = () => {
             </h2>
             <div className="w-24 h-1.5 bg-coral mx-auto mb-10 rounded-full" />
             <p className="text-xl text-gray-600 leading-relaxed font-light">
-              En Fundación Costa Palmas, trabajamos para impulsar el bienestar de las comunidades y proteger el entorno natural de Cabo del Este. A través de nuestros programas, promovemos el desarrollo social, la educación, la sostenibilidad y la conservación ambiental, generando un impacto positivo y duradero.
+              En Fundación Costa Palmas, trabajamos para impulsar el bienestar de las comunidades y proteger el entorno natural de Cabo del Este. A través de nuestros programas, promovemos la educación, la sostenibilidad, la conservación ambiental y el fortalecimiento comunitario, generando un impacto positivo y duradero.
             </p>
           </motion.div>
         </div>

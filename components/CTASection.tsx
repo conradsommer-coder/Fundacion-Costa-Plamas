@@ -17,7 +17,7 @@ const CTASection: React.FC = () => {
             Tu apoyo es fundamental para seguir construyendo un futuro próspero en Cabo del Este. Únete a nuestra causa hoy mismo.
           </p>
           <p className="mt-4 text-white/70 italic text-sm">
-            Sus donativos son deducibles de impuestos tanto en México como en EE. UU. (vía ICF).
+            Sus donativos son deducibles de impuestos tanto en México como en EE. UU.
           </p>
         </div>
         
@@ -32,7 +32,7 @@ const CTASection: React.FC = () => {
               onClick={() => setIsModalOpen(true)}
               className="px-10 py-5 bg-white text-sea rounded-full font-bold text-lg hover:bg-paper transition-all hover:scale-105 shadow-xl inline-flex items-center gap-3"
             >
-              <span>Formas para donar</span>
+              <span>Opciones para donar</span>
               <div className="w-6 h-6 bg-coral/10 rounded-full flex items-center justify-center text-coral">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
               </div>

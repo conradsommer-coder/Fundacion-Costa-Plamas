@@ -52,8 +52,6 @@ const Hero: React.FC = () => {
             className="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl leading-relaxed"
           >
             Transformamos vidas a través de la educación, la salud y la conservación, impulsando el bienestar de nuestra comunidad.
-            <br />
-            <span className="text-sm mt-2 inline-block italic opacity-80">Sus donativos son deducibles de impuestos tanto en México como en EE. UU. (vía ICF).</span>
           </motion.p>
           
           <motion.div 

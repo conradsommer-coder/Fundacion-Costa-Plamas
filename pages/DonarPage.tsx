@@ -66,8 +66,6 @@ const DonarPage: React.FC = () => {
             className="text-xl md:text-2xl max-w-3xl mx-auto font-light"
           >
             Cada donación, sin importar el tamaño, nos ayuda a construir un futuro más brillante para las comunidades de Cabo del Este.
-            <br />
-            <span className="text-sm mt-4 inline-block italic text-white/80">Sus donativos son deducibles de impuestos tanto en México como en EE. UU. (vía ICF).</span>
           </motion.p>
 
           <motion.div
@@ -80,7 +78,7 @@ const DonarPage: React.FC = () => {
               onClick={() => setIsModalOpen(true)}
               className="px-8 py-4 bg-white text-sea rounded-full font-bold uppercase tracking-widest hover:bg-paper transition-all hover:scale-105 shadow-xl inline-flex items-center gap-3"
             >
-              <span>Formas para donar</span>
+              <span>Opciones para donar</span>
               <ExternalLink className="w-5 h-5 text-coral" />
             </button>
           </motion.div>
@@ -174,7 +172,7 @@ const DonarPage: React.FC = () => {
                     onClick={() => setIsModalOpen(true)}
                     className="w-full md:w-auto px-10 py-5 bg-sea text-white rounded-full font-bold text-lg hover:bg-opacity-90 transition-all hover:scale-105 shadow-xl flex items-center justify-center gap-3"
                   >
-                    <span>Ver Formas de Donar</span>
+                    <span>Ver opciones para donar</span>
                     <ExternalLink className="w-5 h-5" />
                   </button>
                   <div className="flex flex-col">
