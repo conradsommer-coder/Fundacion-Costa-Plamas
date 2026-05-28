@@ -2,8 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Mail, Phone, MapPin, Send, User, MessageSquare, Heart } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const ContactoPage: React.FC = () => {
+  const { t } = useTranslation();
   const location = useLocation();
   const [activeForm, setActiveForm] = useState<'contacto' | 'voluntario'>('contacto');
 
@@ -21,6 +23,7 @@ const ContactoPage: React.FC = () => {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const interests = t('contactPage.interests', { returnObjects: true }) as string[];
 
   return (
     <main className="flex-grow pt-24">
@@ -30,7 +33,7 @@ const ContactoPage: React.FC = () => {
           <motion.img 
             style={{ y }}
             src="https://res.cloudinary.com/dr78wne7t/image/upload/v1774038417/josh-withers-7kgSDLFEp0g-unsplash_nsondu.jpg" 
-            alt="Contacto Hero" 
+            alt={t('contactPage.heroAlt')} 
             className="w-full h-[130%] object-cover absolute top-0"
             referrerPolicy="no-referrer"
           />
@@ -43,7 +46,7 @@ const ContactoPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-7xl font-serif mb-6"
           >
-            Contáctanos
+            {t('contactPage.heroTitle')}
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -51,7 +54,7 @@ const ContactoPage: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="text-xl md:text-2xl max-w-3xl mx-auto font-light"
           >
-            Estamos aquí para escucharte. Ya sea que tengas una pregunta, una sugerencia o quieras unirte a nuestro equipo de voluntarios.
+            {t('contactPage.heroDescription')}
           </motion.p>
         </div>
       </section>
@@ -62,15 +65,15 @@ const ContactoPage: React.FC = () => {
             {/* Contact Info */}
             <div className="lg:col-span-1 space-y-12">
               <div>
-                <h2 className="text-3xl font-bold text-sea mb-8">Información de Contacto</h2>
+                <h2 className="text-3xl font-bold text-sea mb-8">{t('contactPage.infoTitle')}</h2>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-coral/10 text-coral rounded-xl flex items-center justify-center shrink-0">
                       <MapPin className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-sea text-lg">Ubicación</h3>
-                      <p className="text-gray-600">La Ribera, B.C.S., México</p>
+                      <h3 className="font-bold text-sea text-lg">{t('contactPage.locationTitle')}</h3>
+                      <p className="text-gray-600">{t('contactPage.location')}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -78,7 +81,7 @@ const ContactoPage: React.FC = () => {
                       <Mail className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-sea text-lg">Email</h3>
+                      <h3 className="font-bold text-sea text-lg">{t('common.email')}</h3>
                       <a href="mailto:fundacion@costapalmas.com" className="text-gray-600 hover:text-coral transition-colors">
                         fundacion@costapalmas.com
                       </a>
@@ -89,7 +92,7 @@ const ContactoPage: React.FC = () => {
                       <Phone className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-sea text-lg">Teléfono</h3>
+                      <h3 className="font-bold text-sea text-lg">{t('contactPage.phone')}</h3>
                       <div className="flex flex-col gap-1">
                         <p className="text-gray-600">+52 624 122 4468</p>
                         <p className="text-gray-600">+52 1 624 355 7285</p>
@@ -100,9 +103,9 @@ const ContactoPage: React.FC = () => {
               </div>
 
               <div className="p-8 bg-paper rounded-[2.5rem] border border-gray-100">
-                <h3 className="text-xl font-bold text-sea mb-4">Horario de Atención</h3>
+                <h3 className="text-xl font-bold text-sea mb-4">{t('contactPage.hoursTitle')}</h3>
                 <p className="text-gray-600 text-sm">
-                  Lunes a Viernes: 9:00 AM - 5:00 PM
+                  {t('contactPage.hours')}
                 </p>
               </div>
             </div>
@@ -119,7 +122,7 @@ const ContactoPage: React.FC = () => {
                     }`}
                   >
                     <MessageSquare className="w-5 h-5" />
-                    Contacto General
+                    {t('contactPage.generalTab')}
                   </button>
                   <button
                     onClick={() => setActiveForm('voluntario')}
@@ -128,7 +131,7 @@ const ContactoPage: React.FC = () => {
                     }`}
                   >
                     <Heart className="w-5 h-5" />
-                    Ser Voluntario
+                    {t('contactPage.volunteerTab')}
                   </button>
                 </div>
 
@@ -141,47 +144,47 @@ const ContactoPage: React.FC = () => {
                     >
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-2">
-                          <label className="text-sm font-bold text-sea uppercase tracking-wider">Nombre Completo</label>
+                          <label className="text-sm font-bold text-sea uppercase tracking-wider">{t('contactPage.fullName')}</label>
                           <div className="relative">
                             <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                             <input 
                               type="text" 
-                              placeholder="Ej. Juan Pérez"
+                              placeholder={t('contactPage.placeholders.name')}
                               className="w-full pl-12 pr-4 py-4 bg-paper rounded-2xl border border-gray-100 focus:border-coral outline-none transition-all"
                             />
                           </div>
                         </div>
                         <div className="space-y-2">
-                          <label className="text-sm font-bold text-sea uppercase tracking-wider">Email</label>
+                          <label className="text-sm font-bold text-sea uppercase tracking-wider">{t('common.email')}</label>
                           <div className="relative">
                             <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                             <input 
                               type="email" 
-                              placeholder="juan@ejemplo.com"
+                              placeholder={t('contactPage.placeholders.email')}
                               className="w-full pl-12 pr-4 py-4 bg-paper rounded-2xl border border-gray-100 focus:border-coral outline-none transition-all"
                             />
                           </div>
                         </div>
                       </div>
                       <div className="space-y-2">
-                        <label className="text-sm font-bold text-sea uppercase tracking-wider">Asunto</label>
+                        <label className="text-sm font-bold text-sea uppercase tracking-wider">{t('contactPage.subject')}</label>
                         <input 
                           type="text" 
-                          placeholder="¿En qué podemos ayudarte?"
+                          placeholder={t('contactPage.placeholders.subject')}
                           className="w-full px-4 py-4 bg-paper rounded-2xl border border-gray-100 focus:border-coral outline-none transition-all"
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-sm font-bold text-sea uppercase tracking-wider">Mensaje</label>
+                        <label className="text-sm font-bold text-sea uppercase tracking-wider">{t('contactPage.message')}</label>
                         <textarea 
                           rows={5}
-                          placeholder="Escribe tu mensaje aquí..."
+                          placeholder={t('contactPage.placeholders.message')}
                           className="w-full px-4 py-4 bg-paper rounded-2xl border border-gray-100 focus:border-coral outline-none transition-all resize-none"
                         ></textarea>
                       </div>
                       <button className="w-full py-5 bg-coral text-white rounded-full font-bold text-lg hover:bg-opacity-90 transition-all flex items-center justify-center gap-2">
                         <Send className="w-5 h-5" />
-                        Enviar Mensaje
+                        {t('contactPage.sendMessage')}
                       </button>
                     </motion.form>
                   ) : (
@@ -192,53 +195,51 @@ const ContactoPage: React.FC = () => {
                     >
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-2">
-                          <label className="text-sm font-bold text-sea uppercase tracking-wider">Nombre Completo</label>
+                          <label className="text-sm font-bold text-sea uppercase tracking-wider">{t('contactPage.fullName')}</label>
                           <input 
                             type="text" 
-                            placeholder="Ej. María García"
+                            placeholder={t('contactPage.placeholders.volunteerName')}
                             className="w-full px-4 py-4 bg-paper rounded-2xl border border-gray-100 focus:border-coral outline-none transition-all"
                           />
                         </div>
                         <div className="space-y-2">
-                          <label className="text-sm font-bold text-sea uppercase tracking-wider">Email</label>
+                          <label className="text-sm font-bold text-sea uppercase tracking-wider">{t('common.email')}</label>
                           <input 
                             type="email" 
-                            placeholder="maria@ejemplo.com"
+                            placeholder={t('contactPage.placeholders.volunteerEmail')}
                             className="w-full px-4 py-4 bg-paper rounded-2xl border border-gray-100 focus:border-coral outline-none transition-all"
                           />
                         </div>
                       </div>
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-2">
-                          <label className="text-sm font-bold text-sea uppercase tracking-wider">Teléfono</label>
+                          <label className="text-sm font-bold text-sea uppercase tracking-wider">{t('contactPage.volunteerPhone')}</label>
                           <input 
                             type="tel" 
-                            placeholder="+52 ..."
+                            placeholder={t('contactPage.placeholders.phone')}
                             className="w-full px-4 py-4 bg-paper rounded-2xl border border-gray-100 focus:border-coral outline-none transition-all"
                           />
                         </div>
                         <div className="space-y-2">
-                          <label className="text-sm font-bold text-sea uppercase tracking-wider">Área de Interés</label>
+                          <label className="text-sm font-bold text-sea uppercase tracking-wider">{t('contactPage.interestArea')}</label>
                           <select className="w-full px-4 py-4 bg-paper rounded-2xl border border-gray-100 focus:border-coral outline-none transition-all appearance-none">
-                            <option>Educación</option>
-                            <option>Salud</option>
-                            <option>Medio Ambiente</option>
-                            <option>Deportes</option>
-                            <option>Otro</option>
+                            {interests.map((interest) => (
+                              <option key={interest}>{interest}</option>
+                            ))}
                           </select>
                         </div>
                       </div>
                       <div className="space-y-2">
-                        <label className="text-sm font-bold text-sea uppercase tracking-wider">¿Por qué quieres ser voluntario?</label>
+                        <label className="text-sm font-bold text-sea uppercase tracking-wider">{t('contactPage.volunteerQuestion')}</label>
                         <textarea 
                           rows={4}
-                          placeholder="Cuéntanos un poco sobre ti y tus motivaciones..."
+                          placeholder={t('contactPage.placeholders.volunteerMotivation')}
                           className="w-full px-4 py-4 bg-paper rounded-2xl border border-gray-100 focus:border-coral outline-none transition-all resize-none"
                         ></textarea>
                       </div>
                       <button className="w-full py-5 bg-sea text-white rounded-full font-bold text-lg hover:bg-opacity-90 transition-all flex items-center justify-center gap-2">
                         <Heart className="w-5 h-5" />
-                        Postularme como Voluntario
+                        {t('contactPage.volunteerSubmit')}
                       </button>
                     </motion.form>
                   )}

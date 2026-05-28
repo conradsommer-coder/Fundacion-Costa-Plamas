@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, ExternalLink, Mail, Copy, Check, ZoomIn } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface DonationModalProps {
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface DonationModalProps {
 }
 
 const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
+  const { t } = useTranslation();
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [isZoomed, setIsZoomed] = useState(false);
 
@@ -57,6 +59,7 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
               {/* Close Button */}
               <button 
                 onClick={onClose}
+                aria-label={t('donationModal.close')}
                 className="absolute top-4 right-4 z-20 w-10 h-10 bg-black/10 hover:bg-black/20 rounded-full flex items-center justify-center transition-colors text-white"
               >
                 <X className="w-6 h-6" />
@@ -68,27 +71,27 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
                   <div className="w-10 h-10 bg-coral/10 rounded-xl flex items-center justify-center text-coral">
                     <ExternalLink className="w-6 h-6" />
                   </div>
-                  <h2 className="text-3xl font-serif text-sea leading-tight">Donativos en México</h2>
+                  <h2 className="text-3xl font-serif text-sea leading-tight">{t('donationModal.mexicoTitle')}</h2>
                 </div>
 
                 <p className="text-gray-600 mb-8 leading-relaxed font-light text-sm">
-                  Para obtener un recibo deducible en México
+                  {t('donationModal.mexicoSubtitle')}
                 </p>
 
                 <div className="space-y-6 bg-paper p-8 rounded-[2rem] border border-gray-100 shadow-inner">
                   <div>
-                    <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-1">Titular</label>
+                    <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-1">{t('donationModal.labels.holder')}</label>
                     <p className="text-sea font-bold text-lg">{bankInfo.titular}</p>
                   </div>
 
                   <div>
-                    <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-1">Banco</label>
+                    <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-1">{t('donationModal.labels.bank')}</label>
                     <p className="text-sea font-bold text-lg">{bankInfo.banco}</p>
                   </div>
 
                   <div className="space-y-6 pt-4 border-t border-gray-200/50">
                     <div className="relative group">
-                      <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-1">Cuenta en Pesos</label>
+                      <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-1">{t('donationModal.labels.pesosAccount')}</label>
                       <div className="flex items-center justify-between gap-4 bg-white p-3 rounded-xl border border-gray-100">
                         <p className="text-sea font-mono font-bold text-lg tracking-tight">{bankInfo.cuenta}</p>
                         <button 
@@ -101,7 +104,7 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
                     </div>
                     
                     <div className="relative group">
-                      <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-1">CLABE INTERBANCARIA</label>
+                      <label className="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-1">{t('donationModal.labels.clabe')}</label>
                       <div className="flex items-center justify-between gap-4 bg-white p-3 rounded-xl border border-gray-100">
                         <p className="text-sea font-mono font-bold text-lg tracking-tight">{bankInfo.clabe}</p>
                         <button 
@@ -118,7 +121,7 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
                 <div className="mt-8 p-6 rounded-2xl bg-sea/5 border border-sea/10 flex items-center gap-4">
                   <Mail className="w-6 h-6 text-sea" />
                   <div className="text-xs">
-                    <p className="font-bold text-sea mb-1">¿Requieres un recibo deducible?</p>
+                    <p className="font-bold text-sea mb-1">{t('donationModal.receiptQuestion')}</p>
                     <a href="mailto:fundacion@costapalmas.com" className="text-coral font-bold underline">
                       fundacion@costapalmas.com
                     </a>
@@ -132,33 +135,33 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
                   <div className="w-10 h-10 bg-coral/10 rounded-xl flex items-center justify-center text-coral">
                     <ExternalLink className="w-6 h-6" />
                   </div>
-                  <h2 className="text-3xl font-serif text-sea leading-tight">Donativos en USA (ICF)</h2>
+                  <h2 className="text-3xl font-serif text-sea leading-tight">{t('donationModal.usaTitle')}</h2>
                 </div>
 
                 <p className="text-gray-600 mb-8 leading-relaxed font-light text-sm">
-                  Para obtener un recibo deducible en EE.UU
+                  {t('donationModal.usaSubtitle')}
                 </p>
 
                 <div className="space-y-4 bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm">
                    <div className="grid grid-cols-2 gap-4 border-b border-gray-100 pb-4">
                     <div>
-                      <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 block mb-1">Banco</label>
+                      <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 block mb-1">{t('donationModal.labels.bank')}</label>
                       <p className="text-sea font-bold text-sm">{usBankInfo.banco}</p>
                     </div>
                     <div>
-                      <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 block mb-1">SWIFT</label>
+                      <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 block mb-1">{t('donationModal.labels.swift')}</label>
                       <p className="text-sea font-bold text-sm">{usBankInfo.swift}</p>
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 block mb-1">Titular</label>
+                    <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 block mb-1">{t('donationModal.labels.holder')}</label>
                     <p className="text-sea font-bold text-sm">{usBankInfo.titular}</p>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="relative group">
-                      <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 block mb-1">Número de Ruta</label>
+                      <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 block mb-1">{t('donationModal.labels.routing')}</label>
                       <div className="flex items-center justify-between gap-2 bg-paper p-2 rounded-lg border border-gray-100">
                         <p className="text-sea font-mono font-bold text-xs">{usBankInfo.routing}</p>
                         <button 
@@ -170,7 +173,7 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
                       </div>
                     </div>
                      <div className="relative group">
-                      <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 block mb-1">Número de Cuenta</label>
+                      <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 block mb-1">{t('donationModal.labels.account')}</label>
                       <div className="flex items-center justify-between gap-2 bg-paper p-2 rounded-lg border border-gray-100">
                         <p className="text-sea font-mono font-bold text-xs">{usBankInfo.cuenta}</p>
                         <button 
@@ -184,12 +187,12 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
                   </div>
 
                   <div>
-                    <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 block mb-1">Referencia</label>
+                    <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 block mb-1">{t('donationModal.labels.reference')}</label>
                     <p className="text-sea font-bold text-sm italic">{usBankInfo.referencia}</p>
                   </div>
 
                   <div className="pt-2 border-t border-gray-100">
-                    <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 block mb-1">Dirección del Banco</label>
+                    <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 block mb-1">{t('donationModal.labels.bankAddress')}</label>
                     <p className="text-gray-500 text-[10px] leading-tight">{usBankInfo.direccion}</p>
                   </div>
                 </div>
@@ -200,23 +203,23 @@ const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose }) => {
                       <Mail className="w-4 h-4 text-sea" />
                     </div>
                     <div>
-                      <p className="font-bold text-sea mb-1">Enviar un cheque por correo</p>
-                      <p>A nombre de: <span className="font-bold">International Community Foundation</span></p>
-                      <p>Dirección: <span className="font-bold">2505 N Avenue, National City, CA 91950</span></p>
-                      <p>Memo: <span className="italic">Fundación Costa Palmas</span></p>
+                      <p className="font-bold text-sea mb-1">{t('donationModal.mailCheck.title')}</p>
+                      <p>{t('donationModal.mailCheck.payableTo')} <span className="font-bold">International Community Foundation</span></p>
+                      <p>{t('donationModal.mailCheck.address')} <span className="font-bold">2505 N Avenue, National City, CA 91950</span></p>
+                      <p>{t('donationModal.mailCheck.memo')} <span className="italic">Fundación Costa Palmas</span></p>
                     </div>
                   </div>
                   <div className="p-4 rounded-xl bg-white border border-gray-100 text-[11px] text-gray-600 flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-paper flex items-center justify-center shrink-0">
                       <Mail className="w-4 h-4 text-sea" />
                     </div>
-                    <p>Confirmar transacción: <span className="font-bold text-sea">info@icfdn.org</span></p>
+                    <p>{t('donationModal.confirmTransaction')} <span className="font-bold text-sea">info@icfdn.org</span></p>
                   </div>
                   <div className="p-4 rounded-xl bg-white border border-gray-100 text-[11px] text-gray-600 flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-paper flex items-center justify-center shrink-0">
                       <ExternalLink className="w-4 h-4 text-sea" />
                     </div>
-                    <p>Donar un legado (Freewill): <a href="https://www.freewill.com/icf" target="_blank" rel="noopener noreferrer" className="font-bold text-sea underline">Saber más</a></p>
+                    <p>{t('donationModal.legacy')} <a href="https://www.freewill.com/icf" target="_blank" rel="noopener noreferrer" className="font-bold text-sea underline">{t('common.learnMore')}</a></p>
                   </div>
                 </div>
               </div>

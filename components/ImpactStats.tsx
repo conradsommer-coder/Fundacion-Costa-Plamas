@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Users, Heart, PawPrint, GraduationCap, Home, TreePine } from 'lucide-react';
 import { motion, useInView, useSpring, useTransform } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 
 const Counter = ({ value }: { value: number }) => {
   const ref = useRef(null);
@@ -23,43 +24,40 @@ const Counter = ({ value }: { value: number }) => {
 const stats = [
   { 
     value: 2854, 
-    label: 'Estudiantes en programas educativos', 
     icon: GraduationCap 
   },
   { 
     value: 5194, 
-    label: 'Salud integral', 
     icon: Heart 
   },
   { 
     value: 4948, 
-    label: 'Bienestar animal', 
     icon: PawPrint 
   },
   { 
     value: 13223, 
-    label: 'Beneficiarios de espacios renovados', 
     icon: Home 
   },
   { 
     value: 3450, 
-    label: 'Conservación ambiental', 
     icon: TreePine 
   },
   { 
     value: 3007, 
-    label: 'Cohesión social', 
     icon: Users 
   },
 ];
 
 const ImpactStats: React.FC = () => {
+  const { t } = useTranslation();
+  const labels = t('impactStats.labels', { returnObjects: true }) as string[];
+
   return (
     <div className="container mx-auto px-4 md:px-8">
       <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl mb-4 text-white">Nuestro impacto hasta el día de hoy</h2>
+        <h2 className="text-4xl md:text-5xl mb-4 text-white">{t('impactStats.title')}</h2>
         <p className="text-white/80 max-w-2xl mx-auto">
-          Cada cifra representa una vida transformada y un paso hacia un futuro más brillante para Cabo del Este.
+          {t('impactStats.description')}
         </p>
       </div>
 
@@ -80,7 +78,7 @@ const ImpactStats: React.FC = () => {
               <Counter value={stat.value} />
             </div>
             <div className="text-sm text-white/70 font-medium leading-tight">
-              {stat.label}
+              {labels[index]}
             </div>
           </motion.div>
         ))}

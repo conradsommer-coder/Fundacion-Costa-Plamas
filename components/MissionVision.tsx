@@ -1,23 +1,25 @@
 import React from 'react';
 import { Target, Eye, Heart } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
+interface MissionVisionCopy {
+  title: string;
+  description: string;
+}
 
 const MissionVision: React.FC = () => {
+  const { t } = useTranslation();
+  const itemCopy = t('missionVision.items', { returnObjects: true }) as MissionVisionCopy[];
   const items = [
     {
-      title: 'Misión',
-      description: 'Impulsar el desarrollo integral de las comunidades de Cabo del Este a través de programas sostenibles en educación, salud y medio ambiente.',
       icon: Target,
       color: 'bg-coral/10 text-coral',
     },
     {
-      title: 'Visión',
-      description: 'Ser el motor de transformación que convierta a Cabo del Este en un modelo de desarrollo equilibrado, donde la prosperidad humana y la conservación natural coexistan.',
       icon: Eye,
       color: 'bg-coral/10 text-coral',
     },
     {
-      title: 'Valores',
-      description: 'Colaboración, excelencia, resiliencia, corresponsabilidad y respeto son los pilares que guían cada una de nuestras acciones.',
       icon: Heart,
       color: 'bg-coral/10 text-coral',
     },
@@ -26,8 +28,8 @@ const MissionVision: React.FC = () => {
   return (
     <div className="container mx-auto px-4 md:px-8">
       <div className="text-center mb-16">
-        <p className="text-coral font-bold uppercase tracking-widest text-sm mb-4">Nuestra Esencia</p>
-        <h2 className="text-4xl md:text-5xl text-sea">Nuestro Propósito</h2>
+        <p className="text-coral font-bold uppercase tracking-widest text-sm mb-4">{t('missionVision.eyebrow')}</p>
+        <h2 className="text-4xl md:text-5xl text-sea">{t('missionVision.title')}</h2>
       </div>
       <div className="grid md:grid-cols-3 gap-8">
         {items.map((item, index) => (
@@ -35,9 +37,9 @@ const MissionVision: React.FC = () => {
             <div className={`w-16 h-16 ${item.color} rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform`}>
               <item.icon className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl text-sea mb-4">{item.title}</h3>
+            <h3 className="text-2xl text-sea mb-4">{itemCopy[index].title}</h3>
             <p className="text-gray-600 leading-relaxed">
-              {item.description}
+              {itemCopy[index].description}
             </p>
           </div>
         ))}

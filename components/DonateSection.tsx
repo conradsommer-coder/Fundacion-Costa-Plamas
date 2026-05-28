@@ -2,41 +2,44 @@
 import React from 'react';
 import { DollarSign, Package, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { getLanguageFromValue, getLocalizedPath } from '../src/i18n/routes';
+import type { RouteKey } from '../src/i18n/routes';
 
 const waysToHelp = [
   {
-    title: 'Donativo Monetario',
-    description: 'Tu aportación económica nos permite mantener y expandir nuestros programas de educación y salud.',
     icon: DollarSign,
     color: 'bg-coral/10 text-coral',
-    link: '/donar',
-    buttonText: 'Donar ahora'
+    routeKey: 'donate' as RouteKey,
   },
   {
-    title: 'Donativo en Especie',
-    description: 'Para fortalecimiento de infraestructura y equipamiento para espacios comunitarios y educativos en Cabo del Este.',
     icon: Package,
     color: 'bg-coral/10 text-coral',
-    link: '/contacto',
-    buttonText: 'Contactar'
+    routeKey: 'contact' as RouteKey,
   },
   {
-    title: 'Voluntariado',
-    description: 'Tu tiempo y talento son invaluables. Únete a nuestras brigadas y proyectos comunitarios.',
     icon: Users,
     color: 'bg-coral/10 text-coral',
-    link: '/contacto#voluntario',
-    buttonText: 'Unirme'
+    routeKey: 'contact' as RouteKey,
+    hash: 'voluntario',
   },
 ];
 
 const DonateSection: React.FC = () => {
+  const { t, i18n } = useTranslation();
+  const language = getLanguageFromValue(i18n.resolvedLanguage || i18n.language);
+  const translatedWays = t('donateSection.ways', { returnObjects: true }) as {
+    title: string;
+    description: string;
+    buttonText: string;
+  }[];
+
   return (
     <div className="container mx-auto px-4 md:px-8">
       <div className="max-w-4xl mx-auto text-center mb-16">
-        <h2 className="text-4xl md:text-5xl text-sea mb-6">Impulsa el Cambio</h2>
+        <h2 className="text-4xl md:text-5xl text-sea mb-6">{t('donateSection.title')}</h2>
         <p className="text-gray-600 text-lg leading-relaxed">
-          Existen muchas formas de contribuir al bienestar de Cabo del Este. Cada acción, por pequeña que parezca, suma en la construcción de un futuro mejor.
+          {t('donateSection.description')}
         </p>
       </div>
 
@@ -46,15 +49,15 @@ const DonateSection: React.FC = () => {
             <div className={`w-16 h-16 ${way.color} rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform`}>
               <way.icon className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl text-sea mb-4">{way.title}</h3>
+            <h3 className="text-2xl text-sea mb-4">{translatedWays[index].title}</h3>
             <p className="text-gray-600 leading-relaxed mb-8 italic">
-              {way.description}
+              {translatedWays[index].description}
             </p>
             <Link 
-              to={way.link} 
+              to={getLocalizedPath(way.routeKey, language, { hash: way.hash })}
               className="mt-auto px-8 py-3 bg-sea text-white rounded-full font-bold hover:bg-sea/90 transition-all shadow-md hover:shadow-lg text-sm"
             >
-              {way.buttonText}
+              {translatedWays[index].buttonText}
             </Link>
           </div>
         ))}

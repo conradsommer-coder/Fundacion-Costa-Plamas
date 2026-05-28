@@ -2,8 +2,10 @@
 import React, { useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 
 const Hero: React.FC = () => {
+  const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -23,7 +25,7 @@ const Hero: React.FC = () => {
       >
         <img 
           src="https://res.cloudinary.com/dr78wne7t/image/upload/v1776292722/SANTIAGO_CLEANUP-39_nf45u6.jpg" 
-          alt="Cabo del Este Landscape" 
+          alt={t('hero.imageAlt')} 
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />
@@ -41,8 +43,8 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-5xl md:text-7xl lg:text-8xl text-white mb-8 leading-tight font-serif"
           >
-            Construyendo Futuro <br />
-            en <span className="italic">Cabo del Este</span>
+            {t('hero.titleLine1')} <br />
+            {t('hero.titleLine2Prefix')} <span className="italic">{t('hero.titleLine2Emphasis')}</span>
           </motion.h1>
           
           <motion.p 
@@ -51,7 +53,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl leading-relaxed"
           >
-            Transformamos vidas a través de la educación, la salud y la conservación, impulsando el bienestar de nuestra comunidad.
+            {t('hero.description')}
           </motion.p>
           
           <motion.div 
@@ -64,7 +66,7 @@ const Hero: React.FC = () => {
               href="#programas" 
               className="px-10 py-5 bg-white text-sea rounded-full font-bold text-center transition-all hover:bg-paper hover:scale-105 shadow-xl"
             >
-              Nuestros Programas
+              {t('hero.programsCta')}
             </a>
             <a 
               href="https://azclftch.donorsupport.co/-/XATEBFMG" 
@@ -72,7 +74,7 @@ const Hero: React.FC = () => {
               rel="noopener noreferrer"
               className="px-10 py-5 bg-coral text-white rounded-full font-bold text-center transition-all hover:bg-opacity-90 hover:scale-105 shadow-xl"
             >
-              Donar Ahora
+              {t('hero.donateCta')}
             </a>
           </motion.div>
         </div>

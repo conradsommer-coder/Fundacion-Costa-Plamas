@@ -3,8 +3,12 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import { Link } from 'react-router-dom';
 import ImpactStories from '../components/ImpactStories';
 import CTASection from '../components/CTASection';
+import { useTranslation } from 'react-i18next';
+import { getLanguageFromValue, getLocalizedPath } from '../src/i18n/routes';
 
 const HistoriasPage: React.FC = () => {
+  const { t, i18n } = useTranslation();
+  const language = getLanguageFromValue(i18n.resolvedLanguage || i18n.language);
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -21,7 +25,7 @@ const HistoriasPage: React.FC = () => {
           <motion.img 
             style={{ y }}
             src="https://res.cloudinary.com/dr78wne7t/image/upload/v1778195702/Red-Autismo-2026-26_vplp1e.jpg" 
-            alt="Historias Hero" 
+            alt={t('storiesPage.heroAlt')} 
             className="w-full h-[130%] object-cover absolute top-0"
             referrerPolicy="no-referrer"
           />
@@ -34,7 +38,7 @@ const HistoriasPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-7xl font-serif mb-6"
           >
-            Historias de Impacto
+            {t('storiesPage.heroTitle')}
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -42,7 +46,7 @@ const HistoriasPage: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="text-xl md:text-2xl max-w-3xl mx-auto font-light"
           >
-            Descubre las historias reales de transformación y esperanza que nacen en el corazón de Cabo del Este.
+            {t('storiesPage.heroDescription')}
           </motion.p>
         </div>
       </section>
@@ -65,7 +69,7 @@ const HistoriasPage: React.FC = () => {
               >
                 <img 
                   src="https://res.cloudinary.com/dr78wne7t/image/upload/v1774390865/SANTIAGO-CLEANUP-39-scaled_eewtyy.jpg" 
-                  alt="Featured Story" 
+                  alt={t('storiesPage.featuredAlt')} 
                   className="w-full h-full object-cover"
                 />
               </motion.div>
@@ -83,17 +87,17 @@ const HistoriasPage: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             >
-              <span className="text-coral font-bold tracking-widest uppercase text-sm mb-4 block">Historia Destacada</span>
-              <h2 className="text-4xl md:text-5xl text-sea mb-6 font-serif leading-tight">Un compromiso con la protección del Palmar</h2>
+              <span className="text-coral font-bold tracking-widest uppercase text-sm mb-4 block">{t('storiesPage.featuredLabel')}</span>
+              <h2 className="text-4xl md:text-5xl text-sea mb-6 font-serif leading-tight">{t('stories.items.proteccion-palmar.title')}</h2>
               <div className="w-16 h-1 bg-coral mb-8" />
               <p className="text-gray-600 text-lg leading-relaxed mb-8 font-light">
-                La protección de nuestros ecosistemas es una de las prioridades fundamentales de Fundación Costa Palmas. El Palmar de Cabo del Este no es solo un paisaje hermoso, es un pulmón vital para nuestra región y un hogar para innumerables especies.
+                {t('storiesPage.featuredDescription')}
               </p>
               <Link 
-                to="/historias/proteccion-palmar"
+                to={getLocalizedPath('story', language, { storyId: 'proteccion-palmar' })}
                 className="inline-flex items-center px-10 py-4 bg-sea text-white rounded-full font-bold hover:bg-coral transition-all shadow-lg hover:shadow-coral/20"
               >
-                Leer historia completa
+                {t('storiesPage.featuredCta')}
               </Link>
             </motion.div>
           </div>

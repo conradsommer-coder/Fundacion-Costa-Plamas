@@ -2,8 +2,12 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { getLanguageFromValue, getLocalizedPath } from '../src/i18n/routes';
 
 const About: React.FC = () => {
+  const { t, i18n } = useTranslation();
+  const language = getLanguageFromValue(i18n.resolvedLanguage || i18n.language);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -39,24 +43,21 @@ const About: React.FC = () => {
         <div className="order-2 lg:order-1">
           <img 
             src="https://res.cloudinary.com/dr78wne7t/image/upload/v1774037289/3_hokb0j.png" 
-            alt="Fundación Costa Palmas Logo" 
+            alt={t('common.logoAlt')} 
             className="h-20 w-auto object-contain mb-6"
             referrerPolicy="no-referrer"
           />
-          <h2 className="text-4xl md:text-5xl text-sea mb-8">¿Quiénes Somos?</h2>
+          <h2 className="text-4xl md:text-5xl text-sea mb-8">{t('aboutPreview.title')}</h2>
           <div className="space-y-6 text-gray-700 text-lg leading-relaxed mb-10">
-            <p>
-              Fundación Costa Palmas es una organización sin fines de lucro dedicada a impulsar el desarrollo sostenible en la región de Cabo del Este, Baja California Sur.
-            </p>
-            <p>
-              Nacimos con la convicción de que el crecimiento de una región debe ir de la mano con el bienestar de su gente y la protección de su entorno natural. Trabajamos en estrecha colaboración con las comunidades locales para identificar necesidades y co-crear soluciones que generen un impacto positivo y duradero.
-            </p>
+            {(t('aboutPreview.paragraphs', { returnObjects: true }) as string[]).map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
           <Link 
-            to="/nosotros" 
+            to={getLocalizedPath('about', language)}
             className="inline-block px-10 py-4 bg-sea text-white rounded-full font-bold hover:bg-sea/90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
           >
-            Conoce más sobre nosotros
+            {t('aboutPreview.cta')}
           </Link>
         </div>
         
@@ -64,7 +65,7 @@ const About: React.FC = () => {
           <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
             <img 
               src="https://res.cloudinary.com/dr78wne7t/image/upload/v1776292703/DSC01348_vfhuwm.jpg" 
-              alt="Comunidad local" 
+              alt={t('aboutPreview.communityAlt')} 
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />

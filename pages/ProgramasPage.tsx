@@ -3,43 +3,38 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import Partners from '../components/Partners';
 import CTASection from '../components/CTASection';
+import { useTranslation } from 'react-i18next';
 
 const programs = [
   {
     id: 'educacion',
-    title: 'Educación',
-    subtitle: 'Acceso que abre puertas. Continuidad que construye futuro.',
-    description: 'Impulsamos el desarrollo educativo para abrir oportunidades y fortalecer el futuro de la comunidad en Cabo del Este, donde factores como la distancia, la falta de recursos y el acompañamiento limitado dificultan la continuidad escolar. Nuestro enfoque no es solo facilitar el acceso, sino asegurar que niñas, niños y jóvenes puedan avanzar en su formación mediante continuidad educativa, desarrollo de habilidades, acceso a herramientas y acompañamiento constante, generando así oportunidades reales a largo plazo.',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774036983/DSC00965_nzdx6q.jpg',
     color: 'bg-sea/5'
   },
   {
     id: 'medio-ambiente',
-    title: 'Medio Ambiente',
-    subtitle: 'Cuidar el entorno es cuidar la vida que lo habita',
-    description: 'Protegemos el entorno natural y promovemos una convivencia responsable entre comunidad, fauna y mascotas en Cabo del Este, donde el crecimiento de la zona hace necesario mantener un equilibrio entre desarrollo y conservación. Buscamos generar entornos seguros y sostenibles mediante acciones que fomenten el cuidado de la fauna local, la responsabilidad en el manejo de mascotas, la conservación del entorno y la colaboración con aliados que fortalecen el bienestar ambiental y comunitario.',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776801241/Tortugas2_hcp6tv.jpg',
     color: 'bg-white'
   },
   {
     id: 'salud-integral',
-    title: 'Salud Integral',
-    subtitle: 'La salud comienza con el acceso adecuado',
-    description: 'Facilitamos el acceso a servicios de salud y bienestar en Cabo del Este, donde para muchas familias recibir atención oportuna puede representar un reto. Por ello, buscamos que cada persona pueda acceder a la atención que necesita en el momento adecuado, a través de la vinculación y canalización con instituciones y aliados especializados, el acompañamiento durante los procesos de atención y el acceso a información y recursos que contribuyen a su bienestar.',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774042414/Corazon-de-nin%CC%83o-Enero-35_zkpeel.jpg',
     color: 'bg-white'
   },
   {
     id: 'espacios',
-    title: 'Espacios que Transforman',
-    subtitle: 'Los espacios también transforman la forma en que aprendemos y convivimos.',
-    description: 'Fortalecemos espacios educativos y comunitarios en Cabo del Este, reconociendo que el entorno influye directamente en cómo aprendemos y vivimos en comunidad. Contar con espacios funcionales, seguros y adecuados es clave tanto para el desarrollo educativo como para el uso activo y ordenado de los espacios públicos. Por ello, trabajamos en la mejora, mantenimiento y adecuación de infraestructura existente, así como en su equipamiento y en la colaboración con aliados, para asegurar entornos que favorezcan el aprendizaje y promuevan una convivencia más segura y sostenible.',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292725/Voluntariado_Popescu_pintando_kinder-012_syan92.jpg',
     color: 'bg-sea/5'
   }
 ];
 
 const ProgramasPage: React.FC = () => {
+  const { t } = useTranslation();
+  const programCopy = t('programsPage.items', { returnObjects: true }) as {
+    title: string;
+    subtitle: string;
+    description: string;
+  }[];
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -49,14 +44,14 @@ const ProgramasPage: React.FC = () => {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   return (
-    <main className="flex-grow pt-24">
+    <main className="flex-grow pt-24 overflow-x-hidden">
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <motion.img 
             style={{ y }}
             src="https://res.cloudinary.com/dr78wne7t/image/upload/v1776292756/WhatsApp_Image_2025-12-10_at_4.59.28_PM_4_fl6uct.jpg" 
-            alt="Programas Hero" 
+            alt={t('programsPage.heroAlt')} 
             className="w-full h-[130%] object-cover absolute top-0"
             referrerPolicy="no-referrer"
           />
@@ -69,7 +64,7 @@ const ProgramasPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-7xl font-serif mb-6"
           >
-            Nuestros Programas
+            {t('programsPage.heroTitle')}
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -77,7 +72,7 @@ const ProgramasPage: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="text-xl md:text-2xl max-w-3xl mx-auto font-light"
           >
-            Cuidemos la Comunidad que nos Cuida
+            {t('programsPage.heroSubtitle')}
           </motion.p>
         </div>
       </section>
@@ -93,11 +88,11 @@ const ProgramasPage: React.FC = () => {
             className="max-w-4xl mx-auto"
           >
             <h2 className="text-4xl md:text-5xl text-sea mb-8 font-serif leading-tight">
-              Cuidemos la Comunidad que nos Cuida
+              {t('programsPage.introTitle')}
             </h2>
             <div className="w-24 h-1.5 bg-coral mx-auto mb-10 rounded-full" />
             <p className="text-xl text-gray-600 leading-relaxed font-light">
-              En Fundación Costa Palmas, trabajamos para impulsar el bienestar de las comunidades y proteger el entorno natural de Cabo del Este. A través de nuestros programas, promovemos la educación, la sostenibilidad, la conservación ambiental y el fortalecimiento comunitario, generando un impacto positivo y duradero.
+              {t('programsPage.introDescription')}
             </p>
           </motion.div>
         </div>
@@ -127,7 +122,7 @@ const ProgramasPage: React.FC = () => {
                     >
                       <img 
                         src={program.image} 
-                        alt={program.title} 
+                        alt={programCopy[index].title} 
                         className="w-full h-full object-cover"
                         referrerPolicy="no-referrer"
                       />
@@ -150,13 +145,13 @@ const ProgramasPage: React.FC = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                   >
-                    <h3 className="text-4xl md:text-5xl text-sea mb-6 font-serif">{program.title}</h3>
+                    <h3 className="text-4xl md:text-5xl text-sea mb-6 font-serif">{programCopy[index].title}</h3>
                     <p className="text-xl text-sea/80 font-medium mb-6 italic leading-snug">
-                      "{program.subtitle}"
+                      "{programCopy[index].subtitle}"
                     </p>
                     <div className="h-1 w-20 bg-coral mb-8" />
                     <p className="text-gray-600 text-lg leading-relaxed">
-                      {program.description}
+                      {programCopy[index].description}
                     </p>
                   </motion.div>
                 </div>
@@ -176,10 +171,10 @@ const ProgramasPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl text-sea font-serif mb-6">Nuestros Aliados</h2>
+            <h2 className="text-4xl md:text-5xl text-sea font-serif mb-6">{t('partners.title')}</h2>
             <div className="w-16 h-1 bg-coral mx-auto mb-8" />
             <p className="text-gray-600 max-w-2xl mx-auto text-lg font-light">
-              Nuestros programas son posibles gracias al apoyo y compromiso de aliados estratégicos que comparten nuestra visión de un futuro con más oportunidades para todos.
+              {t('programsPage.partnersDescription')}
             </p>
           </motion.div>
           <motion.div

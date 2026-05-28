@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import MissionVision from '../components/MissionVision';
@@ -9,10 +9,13 @@ import Region from '../components/Region';
 import Partners from '../components/Partners';
 import DonateSection from '../components/DonateSection';
 import CTASection from '../components/CTASection';
+import { useTranslation } from 'react-i18next';
 
 const HomePage: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
-    <main className="flex-grow">
+    <main className="flex-grow overflow-x-hidden">
       <section id="inicio">
         <Hero />
       </section>
@@ -42,7 +45,7 @@ const HomePage: React.FC = () => {
       <section className="py-24 bg-paper">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl text-sea uppercase font-serif tracking-tight">Nuestros Aliados</h2>
+            <h2 className="text-4xl md:text-5xl text-sea uppercase font-serif tracking-tight">{t('partners.title')}</h2>
           </div>
           <Partners />
         </div>

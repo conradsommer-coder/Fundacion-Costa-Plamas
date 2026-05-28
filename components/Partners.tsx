@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { getLanguageFromValue, getLocalizedPath } from '../src/i18n/routes';
 
 const partners = [
   { name: 'CROC', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292707/logo_croc_vrah64.png' },
@@ -14,6 +16,9 @@ const partners = [
 ];
 
 const Partners: React.FC = () => {
+  const { t, i18n } = useTranslation();
+  const language = getLanguageFromValue(i18n.resolvedLanguage || i18n.language);
+
   return (
     <>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -34,10 +39,10 @@ const Partners: React.FC = () => {
 
       <div className="mt-16 text-center">
         <Link 
-          to="/contacto"
+          to={getLocalizedPath('contact', language)}
           className="inline-block px-10 py-4 border-2 border-sea text-sea rounded-full font-bold hover:bg-sea hover:text-white transition-all"
         >
-          Contáctanos
+          {t('partners.cta')}
         </Link>
       </div>
     </>

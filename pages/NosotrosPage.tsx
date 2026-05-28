@@ -6,32 +6,29 @@ import ImpactStatsAbout from '../components/ImpactStatsAbout';
 import Partners from '../components/Partners';
 import StrategicPartners from '../components/StrategicPartners';
 import CTASection from '../components/CTASection';
+import { useTranslation } from 'react-i18next';
 
 const team = [
   {
     name: 'Pamela Sandoval',
-    role: 'Asistente Administrativo',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292701/HS-FCP-4_q5z4no.jpg',
     position: '0%',
     isSprite: false
   },
   {
     name: 'Carolina Cruz',
-    role: 'Coordinadora de Operaciones',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292707/HS-FCP-5_x3i1vv.jpg',
     position: '75%',
     isSprite: false
   },
   {
     name: 'Karla F. Espino',
-    role: 'Directora de Comunidad y Fundación',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292701/HS-FCP-8_eqdh7g.jpg',
     position: '0%',
     isSprite: false
   },
   {
     name: 'Sinahy Cota',
-    role: 'Coordinadora Administrativa y Programas',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292701/HS-FCP-10_abttq9.jpg',
     position: '50%',
     isSprite: false
@@ -39,6 +36,9 @@ const team = [
 ];
 
 const NosotrosPage: React.FC = () => {
+  const { t } = useTranslation();
+  const historyParagraphs = t('aboutPage.historyParagraphs', { returnObjects: true }) as string[];
+  const teamCopy = t('aboutPage.team', { returnObjects: true }) as { role: string }[];
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -55,7 +55,7 @@ const NosotrosPage: React.FC = () => {
           <motion.img 
             style={{ y }}
             src="https://res.cloudinary.com/dr78wne7t/image/upload/v1776803156/CP_2025_FCP__GOLF_CAMP-24_xzeuki.jpg" 
-            alt="Nosotros Hero" 
+            alt={t('aboutPage.heroAlt')} 
             className="w-full h-[130%] object-cover absolute top-0"
             referrerPolicy="no-referrer"
           />
@@ -68,7 +68,7 @@ const NosotrosPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-7xl font-serif mb-6"
           >
-            Nosotros
+            {t('aboutPage.heroTitle')}
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -76,7 +76,7 @@ const NosotrosPage: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="text-xl md:text-2xl max-w-3xl mx-auto font-light"
           >
-            Conoce la historia, el equipo y los valores que impulsan nuestra labor en Cabo del Este.
+            {t('aboutPage.heroDescription')}
           </motion.p>
         </div>
       </section>
@@ -89,23 +89,17 @@ const NosotrosPage: React.FC = () => {
               <div className="w-12 h-12 bg-terracotta/10 text-terracotta rounded-xl flex items-center justify-center mb-6">
                 <History className="w-6 h-6" />
               </div>
-              <h2 className="text-4xl font-serif text-sea mb-8">¿Quiénes somos?</h2>
+              <h2 className="text-4xl font-serif text-sea mb-8">{t('aboutPage.historyTitle')}</h2>
               <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
-                <p>
-                  Fundación Costa Palmas nació de una visión compartida por preservar la belleza natural de Cabo del Este y, al mismo tiempo, fomentar el bienestar de sus habitantes.
-                </p>
-                <p>
-                  Desde nuestros inicios, hemos trabajado incansablemente para cerrar las brechas de oportunidad en la región, enfocándonos en pilares fundamentales como la educación, la salud y la sostenibilidad ambiental.
-                </p>
-                <p>
-                  Lo que comenzó como una pequeña iniciativa local ha crecido hasta convertirse en un motor de cambio significativo, impactando positivamente a miles de personas en comunidades como La Ribera, Santiago y Miraflores.
-                </p>
+                {historyParagraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
               </div>
             </div>
             <div className="rounded-[2.5rem] overflow-hidden shadow-2xl relative group">
               <img 
                 src="https://res.cloudinary.com/dr78wne7t/image/upload/v1778195835/DSC_0767_1_oidq9v.jpg" 
-                alt="¿Quiénes somos?" 
+                alt={t('aboutPage.historyTitle')} 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
@@ -118,9 +112,9 @@ const NosotrosPage: React.FC = () => {
       {/* Misión, Visión y Valores */}
       <section className="py-24 bg-paper">
         <div className="container mx-auto px-4 md:px-8 mb-16 text-center">
-          <h2 className="text-4xl font-serif text-sea mb-4">Misión, Visión y Valores</h2>
+          <h2 className="text-4xl font-serif text-sea mb-4">{t('aboutPage.missionTitle')}</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Nuestros principios rectores definen quiénes somos y hacia dónde vamos.
+            {t('aboutPage.missionDescription')}
           </p>
         </div>
         <MissionVision />
@@ -136,9 +130,9 @@ const NosotrosPage: React.FC = () => {
             <div className="w-12 h-12 bg-sea/10 text-sea rounded-xl flex items-center justify-center mx-auto mb-6">
               <Users className="w-6 h-6" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-serif text-sea mb-4">Nuestro Equipo</h2>
+            <h2 className="text-4xl md:text-5xl font-serif text-sea mb-4">{t('aboutPage.teamTitle')}</h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              Un grupo apasionado de profesionales comprometidos con el desarrollo de nuestra región.
+              {t('aboutPage.teamDescription')}
             </p>
           </div>
 
@@ -160,7 +154,7 @@ const NosotrosPage: React.FC = () => {
                 <div className="text-center px-2">
                   <h3 className="text-xl font-bold text-sea mb-2 leading-tight">{member.name}</h3>
                   <div className="w-8 h-0.5 bg-terracotta mx-auto mb-3 transform origin-left transition-transform duration-300 group-hover:scale-x-150"></div>
-                  <p className="text-gray-500 text-sm font-medium leading-relaxed uppercase tracking-wider">{member.role}</p>
+                  <p className="text-gray-500 text-sm font-medium leading-relaxed uppercase tracking-wider">{teamCopy[index].role}</p>
                 </div>
               </div>
             ))}
@@ -175,9 +169,9 @@ const NosotrosPage: React.FC = () => {
             <div className="w-12 h-12 bg-terracotta/10 text-terracotta rounded-xl flex items-center justify-center mx-auto mb-6">
               <Handshake className="w-6 h-6" />
             </div>
-            <h2 className="text-4xl font-serif text-sea mb-4">Aliados</h2>
+            <h2 className="text-4xl font-serif text-sea mb-4">{t('aboutPage.alliesTitle')}</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Gracias al apoyo de nuestros aliados, podemos multiplicar nuestro impacto en la comunidad.
+              {t('aboutPage.alliesDescription')}
             </p>
           </div>
           <Partners />
@@ -188,9 +182,9 @@ const NosotrosPage: React.FC = () => {
       <section className="py-24 bg-paper">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif text-sea mb-4">Comunidad Costa Palmas</h2>
+            <h2 className="text-4xl font-serif text-sea mb-4">{t('aboutPage.communityTitle')}</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Comprometidas con el desarrollo integral de la región.
+              {t('aboutPage.communityDescription')}
             </p>
           </div>
           <StrategicPartners type="community" />
@@ -201,9 +195,9 @@ const NosotrosPage: React.FC = () => {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif text-sea mb-4">Aliados Estratégicos</h2>
+            <h2 className="text-4xl font-serif text-sea mb-4">{t('aboutPage.strategicTitle')}</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Organizaciones y empresas que impulsan nuestra misión a través de su generoso apoyo.
+              {t('aboutPage.strategicDescription')}
             </p>
           </div>
           <StrategicPartners type="allies" />

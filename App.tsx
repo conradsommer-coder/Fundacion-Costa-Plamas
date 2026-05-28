@@ -10,6 +10,8 @@ import ContactoPage from './pages/ContactoPage';
 import ProgramasPage from './pages/ProgramasPage';
 import HistoriasPage from './pages/HistoriasPage';
 import HistoriaDetailPage from './pages/HistoriaDetailPage';
+import Seo from './src/seo/Seo';
+import LanguageRouteSync from './src/i18n/LanguageRouteSync';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -46,16 +48,38 @@ const App: React.FC = () => {
   return (
     <Router>
       <ScrollToTop />
+      <LanguageRouteSync />
+      <Seo />
       <div className="min-h-screen flex flex-col">
         <Navbar scrolled={scrolled} />
         
         <Routes>
+          <Route path="/es" element={<HomePage />} />
+          <Route path="/en" element={<HomePage />} />
           <Route path="/" element={<HomePage />} />
+
+          <Route path="/es/nosotros" element={<NosotrosPage />} />
+          <Route path="/en/about" element={<NosotrosPage />} />
           <Route path="/nosotros" element={<NosotrosPage />} />
+
+          <Route path="/es/donar" element={<DonarPage />} />
+          <Route path="/en/donate" element={<DonarPage />} />
           <Route path="/donar" element={<DonarPage />} />
+
+          <Route path="/es/contacto" element={<ContactoPage />} />
+          <Route path="/en/contact" element={<ContactoPage />} />
           <Route path="/contacto" element={<ContactoPage />} />
+
+          <Route path="/es/programas" element={<ProgramasPage />} />
+          <Route path="/en/programs" element={<ProgramasPage />} />
           <Route path="/programas" element={<ProgramasPage />} />
+
+          <Route path="/es/historias" element={<HistoriasPage />} />
+          <Route path="/en/stories" element={<HistoriasPage />} />
           <Route path="/historias" element={<HistoriasPage />} />
+
+          <Route path="/es/historias/:id" element={<HistoriaDetailPage />} />
+          <Route path="/en/stories/:id" element={<HistoriaDetailPage />} />
           <Route path="/historias/:id" element={<HistoriaDetailPage />} />
         </Routes>
 

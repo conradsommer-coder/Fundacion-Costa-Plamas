@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import DonationModal from './DonationModal';
+import { useTranslation } from 'react-i18next';
 
 const CTASection: React.FC = () => {
+  const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -12,12 +14,12 @@ const CTASection: React.FC = () => {
 
       <div className="container mx-auto px-4 md:px-8 text-center relative z-10">
         <div className="max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-6xl font-serif mb-6">¿Listo para contribuir?</h2>
+          <h2 className="text-4xl md:text-6xl font-serif mb-6">{t('cta.title')}</h2>
           <p className="text-xl text-white/90 leading-relaxed">
-            Tu apoyo es fundamental para seguir construyendo un futuro próspero en Cabo del Este. Únete a nuestra causa hoy mismo.
+            {t('cta.description')}
           </p>
           <p className="mt-4 text-white/70 italic text-sm">
-            Sus donativos son deducibles de impuestos tanto en México como en EE. UU.
+            {t('cta.taxNote')}
           </p>
         </div>
         
@@ -32,7 +34,7 @@ const CTASection: React.FC = () => {
               onClick={() => setIsModalOpen(true)}
               className="px-10 py-5 bg-white text-sea rounded-full font-bold text-lg hover:bg-paper transition-all hover:scale-105 shadow-xl inline-flex items-center gap-3"
             >
-              <span>Opciones para donar</span>
+              <span>{t('cta.optionsButton')}</span>
               <div className="w-6 h-6 bg-coral/10 rounded-full flex items-center justify-center text-coral">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
               </div>
@@ -40,7 +42,7 @@ const CTASection: React.FC = () => {
           </div>
           
           <div className="text-white/90">
-            <p className="text-sm uppercase tracking-widest font-bold mb-3 opacity-80">O contáctanos directamente</p>
+            <p className="text-sm uppercase tracking-widest font-bold mb-3 opacity-80">{t('cta.contactLabel')}</p>
             <a 
               href="mailto:fundacion@costapalmas.com" 
               className="text-2xl font-serif hover:text-white transition-all border-b border-white/30 hover:border-white pb-1"
