@@ -2,89 +2,31 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { getLanguageFromValue, getLocalizedPath, getRouteInfo } from '../i18n/routes';
-import type { Language, RouteKey } from '../i18n/routes';
+import type { Language } from '../i18n/routes';
+import { getRouteMetadata, routeMetadataManifest } from './routeMetadata';
+import type { SeoRouteMetadata } from './routeMetadata';
 
-type LocalizedSeo = Record<Language, {
-  title: string;
-  description: string;
-}>;
-
+const defaultSiteUrl = 'https://fundacioncostapalmas.org';
 const defaultImage = 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292722/SANTIAGO_CLEANUP-39_nf45u6.jpg';
+const defaultImageAlt = 'Fundación Costa Palmas community program in Cabo del Este';
 
-const pageSeo: Record<Exclude<RouteKey, 'story'>, LocalizedSeo> = {
-  home: {
-    es: {
-      title: 'Fundación Costa Palmas | Comunidad y Conservación',
-      description: 'Fundación Costa Palmas impulsa educación, salud, conservación ambiental y bienestar comunitario en Cabo del Este, Baja California Sur.',
-    },
-    en: {
-      title: 'Fundación Costa Palmas | Community and Conservation',
-      description: 'Fundación Costa Palmas advances education, health, environmental conservation, and community well-being in Cabo del Este, Baja California Sur.',
-    },
-  },
-  about: {
-    es: {
-      title: 'Nosotros | Fundación Costa Palmas',
-      description: 'Conoce la historia, el equipo, los valores y los aliados que impulsan el trabajo de Fundación Costa Palmas en Cabo del Este.',
-    },
-    en: {
-      title: 'About Us | Fundación Costa Palmas',
-      description: 'Learn about the story, team, values, and partners behind Fundación Costa Palmas work in Cabo del Este.',
-    },
-  },
-  programs: {
-    es: {
-      title: 'Programas | Fundación Costa Palmas',
-      description: 'Programas de educación, medio ambiente, salud integral y espacios comunitarios que fortalecen a Cabo del Este.',
-    },
-    en: {
-      title: 'Programs | Fundación Costa Palmas',
-      description: 'Education, environment, comprehensive health, and community space programs strengthening Cabo del Este.',
-    },
-  },
-  stories: {
-    es: {
-      title: 'Historias de Impacto | Fundación Costa Palmas',
-      description: 'Historias reales de impacto comunitario, educación, salud y conservación ambiental en Cabo del Este.',
-    },
-    en: {
-      title: 'Impact Stories | Fundación Costa Palmas',
-      description: 'Real stories of community impact, education, health, and environmental conservation in Cabo del Este.',
-    },
-  },
-  donate: {
-    es: {
-      title: 'Donar | Fundación Costa Palmas',
-      description: 'Apoya los programas de Fundación Costa Palmas y contribuye al bienestar de las comunidades de Cabo del Este.',
-    },
-    en: {
-      title: 'Donate | Fundación Costa Palmas',
-      description: 'Support Fundación Costa Palmas programs and contribute to the well-being of Cabo del Este communities.',
-    },
-  },
-  contact: {
-    es: {
-      title: 'Contacto | Fundación Costa Palmas',
-      description: 'Contacta a Fundación Costa Palmas para colaborar, donar, ser voluntario o conocer más sobre sus programas.',
-    },
-    en: {
-      title: 'Contact | Fundación Costa Palmas',
-      description: 'Contact Fundación Costa Palmas to collaborate, donate, volunteer, or learn more about its programs.',
-    },
-  },
-};
-
-const stripHtml = (value: string) => value.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-
-const truncate = (value: string, maxLength = 155) => {
-  if (value.length <= maxLength) return value;
-  return `${value.slice(0, maxLength - 1).trim()}...`;
+const ogLocales: Record<Language, string> = {
+  es: 'es_MX',
+  en: 'en_US',
 };
 
 const getSiteUrl = () => {
   const configuredUrl = (import.meta as any).env?.VITE_SITE_URL as string | undefined;
-  return (configuredUrl || window.location.origin).replace(/\/$/, '');
+  return (configuredUrl?.trim() || defaultSiteUrl).replace(/\/+$/, '');
 };
+
+const getAbsoluteUrl = (siteUrl: string, path: string) => `${siteUrl}${path.startsWith('/') ? path : `/${path}`}`;
+
+const getFallbackMetadata = (language: Language): SeoRouteMetadata => (
+  getRouteMetadata(getLocalizedPath('home', language))
+  ?? getRouteMetadata('/')
+  ?? routeMetadataManifest[0]
+);
 
 const upsertMeta = (attribute: 'name' | 'property', key: string, content: string) => {
   let element = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`);
@@ -96,6 +38,10 @@ const upsertMeta = (attribute: 'name' | 'property', key: string, content: string
   }
 
   element.setAttribute('content', content);
+};
+
+const removeMeta = (attribute: 'name' | 'property', key: string) => {
+  document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`)?.remove();
 };
 
 const upsertCanonical = (href: string) => {
@@ -130,47 +76,44 @@ const Seo = () => {
   useEffect(() => {
     const routeInfo = getRouteInfo(location.pathname);
     const language = routeInfo?.language ?? getLanguageFromValue(i18n.resolvedLanguage || i18n.language);
-    const fixedT = i18n.getFixedT(language);
-    let seo = routeInfo?.routeKey === 'story'
-      ? pageSeo.stories[language]
-      : pageSeo[routeInfo?.routeKey ?? 'home'][language];
-
-    if (routeInfo?.routeKey === 'story' && routeInfo.storyId) {
-      const title = fixedT(`stories.items.${routeInfo.storyId}.title`, { defaultValue: '' });
-      const content = fixedT(`stories.items.${routeInfo.storyId}.content`, { defaultValue: '' });
-
-      if (title && content) {
-        seo = {
-          title: `${title} | Fundación Costa Palmas`,
-          description: truncate(stripHtml(content)),
-        };
-      }
-    }
+    const metadata = getRouteMetadata(location.pathname)
+      ?? (routeInfo ? getRouteMetadata(routeInfo.canonicalPath) : undefined)
+      ?? getFallbackMetadata(language);
 
     const siteUrl = getSiteUrl();
-    const canonicalPath = routeInfo?.canonicalPath ?? getLocalizedPath('home', language);
-    const alternatePaths = routeInfo?.alternatePaths ?? {
-      es: getLocalizedPath('home', 'es'),
-      en: getLocalizedPath('home', 'en'),
-    };
-    const canonicalUrl = `${siteUrl}${canonicalPath}`;
+    const canonicalUrl = getAbsoluteUrl(siteUrl, metadata.canonicalPath);
+    const ogType = metadata.isStoryDetailPage ? 'article' : 'website';
+    const alternateLanguage = metadata.language === 'es' ? 'en' : 'es';
 
-    document.title = seo.title;
-    upsertMeta('name', 'description', seo.description);
+    document.title = metadata.title;
+    upsertMeta('name', 'description', metadata.description);
     upsertMeta('name', 'twitter:card', 'summary_large_image');
-    upsertMeta('name', 'twitter:title', seo.title);
-    upsertMeta('name', 'twitter:description', seo.description);
+    upsertMeta('name', 'twitter:title', metadata.title);
+    upsertMeta('name', 'twitter:description', metadata.description);
     upsertMeta('name', 'twitter:image', defaultImage);
+    upsertMeta('name', 'twitter:image:alt', defaultImageAlt);
     upsertMeta('property', 'og:site_name', 'Fundación Costa Palmas');
-    upsertMeta('property', 'og:type', routeInfo?.routeKey === 'story' ? 'article' : 'website');
-    upsertMeta('property', 'og:title', seo.title);
-    upsertMeta('property', 'og:description', seo.description);
+    upsertMeta('property', 'og:type', ogType);
+    upsertMeta('property', 'og:title', metadata.title);
+    upsertMeta('property', 'og:description', metadata.description);
     upsertMeta('property', 'og:url', canonicalUrl);
     upsertMeta('property', 'og:image', defaultImage);
+    upsertMeta('property', 'og:image:alt', defaultImageAlt);
+    upsertMeta('property', 'og:locale', ogLocales[metadata.language]);
+    upsertMeta('property', 'og:locale:alternate', ogLocales[alternateLanguage]);
+
+    if (metadata.isStoryDetailPage) {
+      upsertMeta('property', 'article:author', 'Fundación Costa Palmas');
+      upsertMeta('property', 'article:section', metadata.language === 'es' ? 'Historias de Impacto' : 'Impact Stories');
+    } else {
+      removeMeta('property', 'article:author');
+      removeMeta('property', 'article:section');
+    }
+
     upsertCanonical(canonicalUrl);
-    upsertAlternate('es', `${siteUrl}${alternatePaths.es}`);
-    upsertAlternate('en', `${siteUrl}${alternatePaths.en}`);
-    upsertAlternate('x-default', `${siteUrl}${alternatePaths.es}`);
+    upsertAlternate('es', getAbsoluteUrl(siteUrl, metadata.alternatePaths.es));
+    upsertAlternate('en', getAbsoluteUrl(siteUrl, metadata.alternatePaths.en));
+    upsertAlternate('x-default', getAbsoluteUrl(siteUrl, metadata.alternatePaths.es));
   }, [i18n, i18n.language, i18n.resolvedLanguage, location.pathname]);
 
   return null;

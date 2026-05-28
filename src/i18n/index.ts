@@ -1,5 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import { getPathLanguage, getRouteInfo } from './routes';
 import en from './resources/en';
 import es from './resources/es';
 
@@ -14,7 +15,18 @@ const isSupportedLanguage = (language: string | null | undefined): language is S
 };
 
 export const getInitialLanguage = (): SupportedLanguage => {
-  const savedLanguage = localStorage.getItem(languageStorageKey);
+  const routeLanguage = typeof window === 'undefined'
+    ? null
+    : getRouteInfo(window.location.pathname)?.language ?? getPathLanguage(window.location.pathname);
+
+  if (isSupportedLanguage(routeLanguage)) {
+    return routeLanguage;
+  }
+
+  const savedLanguage = typeof window === 'undefined'
+    ? null
+    : localStorage.getItem(languageStorageKey);
+
   if (isSupportedLanguage(savedLanguage)) {
     return savedLanguage;
   }
@@ -23,6 +35,8 @@ export const getInitialLanguage = (): SupportedLanguage => {
 };
 
 const updateDocumentLanguage = (language: string) => {
+  if (typeof document === 'undefined') return;
+
   document.documentElement.lang = isSupportedLanguage(language) ? language : defaultLanguage;
 };
 
@@ -46,7 +60,11 @@ updateDocumentLanguage(i18n.language);
 
 i18n.on('languageChanged', (language) => {
   const resolvedLanguage = isSupportedLanguage(language) ? language : defaultLanguage;
-  localStorage.setItem(languageStorageKey, resolvedLanguage);
+
+  if (typeof window !== 'undefined') {
+    localStorage.setItem(languageStorageKey, resolvedLanguage);
+  }
+
   updateDocumentLanguage(resolvedLanguage);
 });
 

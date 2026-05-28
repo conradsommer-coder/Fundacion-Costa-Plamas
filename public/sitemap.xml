@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:4173/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en" />
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/es</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en" />
+    <changefreq>weekly</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/en</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en" />
+    <changefreq>weekly</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/nosotros</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/nosotros" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/about" />
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/es/nosotros</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/nosotros" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/about" />
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/nosotros" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/about" />
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/programas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/programas" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/programs" />
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/es/programas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/programas" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/programs" />
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/en/programs</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/programas" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/programs" />
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/historias</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories" />
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/es/historias</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories" />
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/en/stories</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories" />
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/donar</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/donar" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/donate" />
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/es/donar</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/donar" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/donate" />
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/en/donate</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/donar" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/donate" />
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/contacto</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/contacto" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/contact" />
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/es/contacto</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/contacto" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/contact" />
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/contacto" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/contact" />
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/historias/proteccion-palmar</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/proteccion-palmar" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/protecting-palmar" />
+    <changefreq>monthly</changefreq>
+    <priority>0.45</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/es/historias/proteccion-palmar</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/proteccion-palmar" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/protecting-palmar" />
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/en/stories/protecting-palmar</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/proteccion-palmar" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/protecting-palmar" />
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/historias/diagnostico-corazon</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/diagnostico-corazon" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/timely-heart-diagnosis" />
+    <changefreq>monthly</changefreq>
+    <priority>0.45</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/es/historias/diagnostico-corazon</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/diagnostico-corazon" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/timely-heart-diagnosis" />
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/en/stories/timely-heart-diagnosis</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/diagnostico-corazon" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/timely-heart-diagnosis" />
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/historias/becas-uabcs</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/becas-uabcs" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/uabcs-scholarships" />
+    <changefreq>monthly</changefreq>
+    <priority>0.45</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/es/historias/becas-uabcs</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/becas-uabcs" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/uabcs-scholarships" />
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/en/stories/uabcs-scholarships</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/becas-uabcs" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/uabcs-scholarships" />
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/historias/campana-vacunacion</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/campana-vacunacion" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/vaccination-campaign" />
+    <changefreq>monthly</changefreq>
+    <priority>0.45</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/es/historias/campana-vacunacion</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/campana-vacunacion" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/vaccination-campaign" />
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/en/stories/vaccination-campaign</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/campana-vacunacion" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/vaccination-campaign" />
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+</urlset>
