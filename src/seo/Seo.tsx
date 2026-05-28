@@ -1,6 +1,8 @@
+'use client';
+
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router-dom';
 import { getLanguageFromValue, getLocalizedPath, getRouteInfo } from '../i18n/routes';
 import type { Language, RouteKey } from '../i18n/routes';
 
@@ -82,7 +84,7 @@ const truncate = (value: string, maxLength = 155) => {
 };
 
 const getSiteUrl = () => {
-  const configuredUrl = (import.meta as any).env?.VITE_SITE_URL as string | undefined;
+  const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL;
   return (configuredUrl || window.location.origin).replace(/\/$/, '');
 };
 
@@ -124,11 +126,11 @@ const upsertAlternate = (hreflang: string, href: string) => {
 };
 
 const Seo = () => {
-  const location = useLocation();
+  const pathname = usePathname() || '/';
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    const routeInfo = getRouteInfo(location.pathname);
+    const routeInfo = getRouteInfo(pathname);
     const language = routeInfo?.language ?? getLanguageFromValue(i18n.resolvedLanguage || i18n.language);
     const fixedT = i18n.getFixedT(language);
     let seo = routeInfo?.routeKey === 'story'
@@ -171,7 +173,7 @@ const Seo = () => {
     upsertAlternate('es', `${siteUrl}${alternatePaths.es}`);
     upsertAlternate('en', `${siteUrl}${alternatePaths.en}`);
     upsertAlternate('x-default', `${siteUrl}${alternatePaths.es}`);
-  }, [i18n, i18n.language, i18n.resolvedLanguage, location.pathname]);
+  }, [i18n, i18n.language, i18n.resolvedLanguage, pathname]);
 
   return null;
 };

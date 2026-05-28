@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { getLanguageFromValue, getLocalizedPath } from '../src/i18n/routes';
 
@@ -39,7 +39,7 @@ const Partners: React.FC = () => {
 
       <div className="mt-16 text-center">
         <Link 
-          to={getLocalizedPath('contact', language)}
+          href={getLocalizedPath('contact', language)}
           className="inline-block px-10 py-4 border-2 border-sea text-sea rounded-full font-bold hover:bg-sea hover:text-white transition-all"
         >
           {t('partners.cta')}

@@ -1,6 +1,6 @@
 
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { getLanguageFromValue, getLocalizedPath } from '../src/i18n/routes';
@@ -54,7 +54,7 @@ const About: React.FC = () => {
             ))}
           </div>
           <Link 
-            to={getLocalizedPath('about', language)}
+            href={getLocalizedPath('about', language)}
             className="inline-block px-10 py-4 bg-sea text-white rounded-full font-bold hover:bg-sea/90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
           >
             {t('aboutPreview.cta')}

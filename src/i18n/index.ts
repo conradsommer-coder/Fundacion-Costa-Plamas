@@ -13,16 +13,24 @@ const isSupportedLanguage = (language: string | null | undefined): language is S
   return supportedLanguages.includes(language as SupportedLanguage);
 };
 
+const getLanguageFromPathname = (pathname: string): SupportedLanguage => {
+  const [, prefix] = pathname.split('/');
+  return isSupportedLanguage(prefix) ? prefix : defaultLanguage;
+};
+
 export const getInitialLanguage = (): SupportedLanguage => {
-  const savedLanguage = localStorage.getItem(languageStorageKey);
-  if (isSupportedLanguage(savedLanguage)) {
-    return savedLanguage;
+  if (typeof window === 'undefined') {
+    return defaultLanguage;
   }
 
-  return defaultLanguage;
+  return getLanguageFromPathname(window.location.pathname);
 };
 
 const updateDocumentLanguage = (language: string) => {
+  if (typeof document === 'undefined') {
+    return;
+  }
+
   document.documentElement.lang = isSupportedLanguage(language) ? language : defaultLanguage;
 };
 
@@ -46,7 +54,9 @@ updateDocumentLanguage(i18n.language);
 
 i18n.on('languageChanged', (language) => {
   const resolvedLanguage = isSupportedLanguage(language) ? language : defaultLanguage;
-  localStorage.setItem(languageStorageKey, resolvedLanguage);
+  if (typeof window !== 'undefined') {
+    localStorage.setItem(languageStorageKey, resolvedLanguage);
+  }
   updateDocumentLanguage(resolvedLanguage);
 });
 

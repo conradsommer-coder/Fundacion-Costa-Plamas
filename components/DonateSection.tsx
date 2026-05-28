@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { DollarSign, Package, Users } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { getLanguageFromValue, getLocalizedPath } from '../src/i18n/routes';
 import type { RouteKey } from '../src/i18n/routes';
@@ -54,7 +54,7 @@ const DonateSection: React.FC = () => {
               {translatedWays[index].description}
             </p>
             <Link 
-              to={getLocalizedPath(way.routeKey, language, { hash: way.hash })}
+              href={getLocalizedPath(way.routeKey, language, { hash: way.hash })}
               className="mt-auto px-8 py-3 bg-sea text-white rounded-full font-bold hover:bg-sea/90 transition-all shadow-md hover:shadow-lg text-sm"
             >
               {translatedWays[index].buttonText}

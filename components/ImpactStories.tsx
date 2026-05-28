@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { getLanguageFromValue, getLocalizedPath } from '../src/i18n/routes';
@@ -47,7 +47,7 @@ const ImpactStories: React.FC<ImpactStoriesProps> = ({ showTitle = true }) => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: "easeOut" as const
       }
     }
   };
@@ -101,7 +101,7 @@ const ImpactStories: React.FC<ImpactStoriesProps> = ({ showTitle = true }) => {
                 </h3>
                 <p className="text-gray-400 text-sm mb-8 font-medium">{t(`stories.items.${story.id}.date`)}</p>
                 <Link 
-                  to={getLocalizedPath('story', language, { storyId: story.id })}
+                  href={getLocalizedPath('story', language, { storyId: story.id })}
                   className="inline-flex items-center px-8 py-3 bg-sea text-white rounded-full text-xs font-bold tracking-widest hover:bg-coral transition-all uppercase shadow-lg hover:shadow-coral/20"
                 >
                   {t('stories.readMore')}

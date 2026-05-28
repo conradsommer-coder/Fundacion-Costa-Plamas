@@ -1,7 +1,9 @@
+'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { Menu, X, Globe } from 'lucide-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { getEquivalentLocalizedPath, getLanguageFromValue, getLocalizedPath, getRouteInfo } from '../src/i18n/routes';
@@ -13,12 +15,12 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const pathname = usePathname() || '/';
+  const router = useRouter();
   const { t, i18n } = useTranslation();
   const currentLanguage = getLanguageFromValue(i18n.resolvedLanguage || i18n.language);
   const nextLanguage = currentLanguage === 'es' ? 'en' : 'es';
-  const activeRoute = getRouteInfo(location.pathname)?.routeKey;
+  const activeRoute = getRouteInfo(pathname)?.routeKey;
 
   const navLinks: { label: string; href: string; routeKey: RouteKey }[] = [
     { label: t('navigation.home'), href: getLocalizedPath('home', currentLanguage), routeKey: 'home' },
@@ -30,15 +32,17 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
 
   const isHome = activeRoute === 'home';
   const handleLanguageChange = () => {
-    void i18n.changeLanguage(nextLanguage);
-    navigate(getEquivalentLocalizedPath(location.pathname, nextLanguage, location.search, location.hash));
+    const search = typeof window !== 'undefined' ? window.location.search : '';
+    const hash = typeof window !== 'undefined' ? window.location.hash : '';
+
+    router.push(getEquivalentLocalizedPath(pathname, nextLanguage, search, hash));
     setIsOpen(false);
   };
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || !isHome ? 'bg-white shadow-sm py-4' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
-        <Link to={getLocalizedPath('home', currentLanguage)} className="flex items-center gap-2">
+        <Link href={getLocalizedPath('home', currentLanguage)} className="flex items-center gap-2">
           <img 
             src={scrolled || !isHome 
               ? "https://res.cloudinary.com/dr78wne7t/image/upload/v1774037289/3_hokb0j.png" 
@@ -73,7 +77,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
                   </a>
                 ) : (
                   <Link
-                    to={link.href}
+                    href={link.href}
                     className={`text-sm font-bold transition-colors py-2 flex flex-col items-center ${
                       isActive
                         ? (scrolled || !isHome ? 'text-sea' : 'text-white')
@@ -107,7 +111,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
               whileTap={{ scale: 0.95 }}
             >
               <Link
-                to={getLocalizedPath('donate', currentLanguage)}
+                href={getLocalizedPath('donate', currentLanguage)}
                 className={`px-8 py-2.5 rounded-full text-sm font-bold transition-all shadow-sm hover:shadow-md ${
                   scrolled || !isHome
                     ? 'bg-coral text-white hover:brightness-110' 
@@ -156,7 +160,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
               return (
                 <Link
                   key={link.href}
-                  to={link.href}
+                  href={link.href}
                   className={`text-2xl font-serif transition-colors ${
                     isActive ? 'text-coral' : 'text-sea hover:text-coral'
                   }`}
@@ -168,7 +172,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
               );
             })}
             <Link
-              to={getLocalizedPath('donate', currentLanguage)}
+              href={getLocalizedPath('donate', currentLanguage)}
               className="bg-coral text-white text-center py-4 rounded-full font-bold text-lg shadow-lg"
               onClick={() => setIsOpen(false)}
             >

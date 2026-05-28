@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { getLanguageFromValue, getLocalizedPath } from '../src/i18n/routes';
 
@@ -38,7 +38,7 @@ const ProgramsGrid: React.FC = () => {
         {programs.map((program, index) => (
           <Link 
             key={index} 
-            to={getLocalizedPath('programs', language, { hash: program.href.split('#')[1] })}
+            href={getLocalizedPath('programs', language, { hash: program.href.split('#')[1] })}
             className="group relative rounded-[2.5rem] overflow-hidden shadow-lg cursor-pointer block transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 aspect-[16/10] md:aspect-[16/9]"
           >
             <img 

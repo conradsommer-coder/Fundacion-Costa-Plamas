@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Facebook, Instagram, Twitter, Linkedin, Mail, MapPin } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { getLanguageFromValue, getLocalizedPath } from '../src/i18n/routes';
 
@@ -45,11 +45,11 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-sea font-bold text-lg mb-8">{t('footer.quickLinks')}</h4>
             <ul className="space-y-4 text-gray-600">
-              <li><Link to={getLocalizedPath('home', language)} className="hover:text-sea transition-colors">{t('navigation.home')}</Link></li>
-              <li><Link to={getLocalizedPath('about', language)} className="hover:text-sea transition-colors">{t('navigation.about')}</Link></li>
-              <li><Link to={getLocalizedPath('programs', language)} className="hover:text-sea transition-colors">{t('navigation.programs')}</Link></li>
-              <li><Link to={getLocalizedPath('contact', language)} className="hover:text-sea transition-colors">{t('navigation.contact')}</Link></li>
-              <li><Link to={getLocalizedPath('contact', language)} className="hover:text-sea transition-colors">{t('navigation.volunteer')}</Link></li>
+              <li><Link href={getLocalizedPath('home', language)} className="hover:text-sea transition-colors">{t('navigation.home')}</Link></li>
+              <li><Link href={getLocalizedPath('about', language)} className="hover:text-sea transition-colors">{t('navigation.about')}</Link></li>
+              <li><Link href={getLocalizedPath('programs', language)} className="hover:text-sea transition-colors">{t('navigation.programs')}</Link></li>
+              <li><Link href={getLocalizedPath('contact', language)} className="hover:text-sea transition-colors">{t('navigation.contact')}</Link></li>
+              <li><Link href={getLocalizedPath('contact', language, { hash: 'voluntario' })} className="hover:text-sea transition-colors">{t('navigation.volunteer')}</Link></li>
             </ul>
           </div>
 
