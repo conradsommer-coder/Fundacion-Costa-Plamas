@@ -4,6 +4,9 @@ import { Facebook, Instagram, Twitter, Linkedin, Mail, MapPin } from 'lucide-rea
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { getLanguageFromValue, getLocalizedPath } from '../src/i18n/routes';
+import { cloudinaryImageUrl } from '../src/utils/cloudinary';
+
+const logoImage = 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774037289/3_hokb0j.png';
 
 const Footer: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -15,9 +18,11 @@ const Footer: React.FC = () => {
         <div className="grid lg:grid-cols-3 gap-12 mb-16">
           <div className="col-span-1 lg:col-span-1">
             <img 
-              src="https://res.cloudinary.com/dr78wne7t/image/upload/v1774037289/3_hokb0j.png" 
+              src={cloudinaryImageUrl(logoImage, 240)}
               alt={t('common.logoAlt')} 
               className="h-16 w-auto object-contain mb-8"
+              loading="lazy"
+              decoding="async"
               referrerPolicy="no-referrer"
             />
             <p className="text-gray-500 leading-relaxed mb-8">

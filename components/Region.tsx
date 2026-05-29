@@ -1,5 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { cloudinaryImageSrcSet, cloudinaryImageUrl } from '../src/utils/cloudinary';
+
+const mapImage = 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774037190/MAPA-EN-ESPANOL_ftsgz1.png';
 
 const locations = [
   { image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774048042/Gemini_Generated_Image_jvhgs8jvhgs8jvhg_ohsrtl.png' },
@@ -26,9 +29,13 @@ const Region: React.FC = () => {
         
         <div className="rounded-3xl overflow-hidden shadow-xl border border-paper/10">
           <img 
-            src="https://res.cloudinary.com/dr78wne7t/image/upload/v1774037190/MAPA-EN-ESPANOL_ftsgz1.png" 
+            src={cloudinaryImageUrl(mapImage, 1200)}
+            srcSet={cloudinaryImageSrcSet(mapImage, [640, 900, 1200])}
+            sizes="(min-width: 1024px) 50vw, 100vw"
             alt={t('region.mapAlt')} 
             className="w-full h-auto object-contain"
+            loading="lazy"
+            decoding="async"
             referrerPolicy="no-referrer"
           />
         </div>
@@ -38,9 +45,13 @@ const Region: React.FC = () => {
         {locations.map((loc, index) => (
           <div key={index} className="group relative aspect-[16/10] sm:aspect-[3/4] rounded-2xl overflow-hidden shadow-md">
             <img 
-              src={loc.image} 
+              src={cloudinaryImageUrl(loc.image, 600)}
+              srcSet={cloudinaryImageSrcSet(loc.image, [360, 480, 600, 800])}
+              sizes="(min-width: 640px) 33vw, 100vw"
               alt={locationNames[index]} 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              loading="lazy"
+              decoding="async"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-end p-4">

@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { getLanguageFromValue, getLocalizedPath } from '../src/i18n/routes';
+import { cloudinaryImageSrcSet, cloudinaryImageUrl } from '../src/utils/cloudinary';
 
 const programs = [
   {
@@ -42,9 +43,13 @@ const ProgramsGrid: React.FC = () => {
             className="group relative rounded-[2.5rem] overflow-hidden shadow-lg cursor-pointer block transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 aspect-[16/10] md:aspect-[16/9]"
           >
             <img 
-              src={program.image} 
+              src={cloudinaryImageUrl(program.image, 900)}
+              srcSet={cloudinaryImageSrcSet(program.image, [480, 720, 900, 1200])}
+              sizes="(min-width: 768px) 50vw, 100vw"
               alt={programCopy[index].alt} 
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              loading="lazy"
+              decoding="async"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 md:p-8">

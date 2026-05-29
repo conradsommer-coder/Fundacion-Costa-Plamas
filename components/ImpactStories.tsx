@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { getLanguageFromValue, getLocalizedPath } from '../src/i18n/routes';
+import { cloudinaryImageSrcSet, cloudinaryImageUrl } from '../src/utils/cloudinary';
 
 const stories = [
   {
@@ -87,9 +88,13 @@ const ImpactStories: React.FC<ImpactStoriesProps> = ({ showTitle = true }) => {
                 <motion.img 
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.6 }}
-                  src={story.image} 
+                  src={cloudinaryImageUrl(story.image, 700)}
+                  srcSet={cloudinaryImageSrcSet(story.image, [420, 560, 700, 900])}
+                  sizes="(min-width: 768px) 33vw, 100vw"
                   alt={t(`stories.items.${story.id}.title`)} 
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-sea shadow-sm">
                   {t(`stories.items.${story.id}.category`)}

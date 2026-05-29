@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { getLanguageFromValue, getLocalizedPath } from '../src/i18n/routes';
+import { cloudinaryImageUrl } from '../src/utils/cloudinary';
 
 const partners = [
   { name: 'CROC', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292707/logo_croc_vrah64.png' },
@@ -28,9 +29,11 @@ const Partners: React.FC = () => {
             className="h-32 bg-white rounded-3xl shadow-sm border border-gray-100 flex items-center justify-center p-8 transition-transform duration-300 hover:scale-105"
           >
             <img 
-              src={partner.logo} 
+              src={cloudinaryImageUrl(partner.logo, 320)}
               alt={partner.name} 
               className="max-h-full max-w-full object-contain"
+              loading="lazy"
+              decoding="async"
               referrerPolicy="no-referrer"
             />
           </div>

@@ -4,6 +4,16 @@ import { Link } from 'react-router-dom';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { getLanguageFromValue, getLocalizedPath } from '../src/i18n/routes';
+import {
+  cloudinaryImageSrcSet,
+  cloudinaryImageUrl,
+  cloudinaryVideoPosterUrl,
+  cloudinaryVideoUrl,
+} from '../src/utils/cloudinary';
+
+const logoImage = 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774037289/3_hokb0j.png';
+const communityImage = 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292703/DSC01348_vfhuwm.jpg';
+const foundationVideo = 'https://res.cloudinary.com/dr78wne7t/video/upload/v1776840434/fundacion_costa_palmas_v2_compressed_pn4nhr.mp4';
 
 const About: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -42,9 +52,11 @@ const About: React.FC = () => {
       <div className="grid lg:grid-cols-2 gap-16 items-center">
         <div className="order-2 lg:order-1">
           <img 
-            src="https://res.cloudinary.com/dr78wne7t/image/upload/v1774037289/3_hokb0j.png" 
+            src={cloudinaryImageUrl(logoImage, 240)}
             alt={t('common.logoAlt')} 
             className="h-20 w-auto object-contain mb-6"
+            loading="lazy"
+            decoding="async"
             referrerPolicy="no-referrer"
           />
           <h2 className="text-4xl md:text-5xl text-sea mb-8">{t('aboutPreview.title')}</h2>
@@ -64,9 +76,13 @@ const About: React.FC = () => {
         <div className="order-1 lg:order-2 relative">
           <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
             <img 
-              src="https://res.cloudinary.com/dr78wne7t/image/upload/v1776292703/DSC01348_vfhuwm.jpg" 
+              src={cloudinaryImageUrl(communityImage, 1200)}
+              srcSet={cloudinaryImageSrcSet(communityImage, [640, 900, 1200])}
+              sizes="(min-width: 1024px) 50vw, 100vw"
               alt={t('aboutPreview.communityAlt')} 
               className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
               referrerPolicy="no-referrer"
             />
           </div>
@@ -78,11 +94,12 @@ const About: React.FC = () => {
       <div className="mt-20 rounded-[2.5rem] overflow-hidden shadow-2xl aspect-[21/9] bg-sea/5 relative group cursor-pointer" onClick={togglePlay}>
         <video 
           ref={videoRef}
-          src="https://res.cloudinary.com/dr78wne7t/video/upload/v1776840434/fundacion_costa_palmas_v2_compressed_pn4nhr.mp4" 
-          autoPlay 
+          src={cloudinaryVideoUrl(foundationVideo, 1280)}
+          poster={cloudinaryVideoPosterUrl(foundationVideo, 1280)}
           loop 
           muted={isMuted}
           playsInline
+          preload="metadata"
           className="w-full h-full object-cover"
         />
         

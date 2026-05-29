@@ -6,6 +6,10 @@ import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { getEquivalentLocalizedPath, getLanguageFromValue, getLocalizedPath, getRouteInfo } from '../src/i18n/routes';
 import type { RouteKey } from '../src/i18n/routes';
+import { cloudinaryImageUrl } from '../src/utils/cloudinary';
+
+const colorLogo = 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774037289/3_hokb0j.png';
+const whiteLogo = 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774037190/ChatGPT_Image_Mar_10_2026_07_50_31_PM_d3ympz.png';
 
 interface NavbarProps {
   scrolled: boolean;
@@ -41,11 +45,12 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
         <Link to={getLocalizedPath('home', currentLanguage)} className="flex items-center gap-2">
           <img 
             src={scrolled || !isHome 
-              ? "https://res.cloudinary.com/dr78wne7t/image/upload/v1774037289/3_hokb0j.png" 
-              : "https://res.cloudinary.com/dr78wne7t/image/upload/v1774037190/ChatGPT_Image_Mar_10_2026_07_50_31_PM_d3ympz.png"
+              ? cloudinaryImageUrl(colorLogo, 240)
+              : cloudinaryImageUrl(whiteLogo, 240)
             } 
             alt={t('common.logoAlt')} 
             className="h-12 md:h-20 w-auto object-contain transition-all duration-300"
+            decoding="async"
             referrerPolicy="no-referrer"
           />
         </Link>

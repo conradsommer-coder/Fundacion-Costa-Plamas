@@ -3,6 +3,9 @@ import React, { useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useTranslation } from 'react-i18next';
+import { cloudinaryImageSrcSet, cloudinaryImageUrl } from '../src/utils/cloudinary';
+
+const heroImage = 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292722/SANTIAGO_CLEANUP-39_nf45u6.jpg';
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();
@@ -24,9 +27,14 @@ const Hero: React.FC = () => {
         className="absolute inset-0 z-0"
       >
         <img 
-          src="https://res.cloudinary.com/dr78wne7t/image/upload/v1776292722/SANTIAGO_CLEANUP-39_nf45u6.jpg" 
+          src={cloudinaryImageUrl(heroImage, 1920)}
+          srcSet={cloudinaryImageSrcSet(heroImage, [960, 1280, 1600, 1920])}
+          sizes="100vw"
           alt={t('hero.imageAlt')} 
           className="w-full h-full object-cover"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-black/40"></div>
