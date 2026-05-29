@@ -17,19 +17,6 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
-    
-    // Re-trigger Fundraise Up widgets on page change
-    if ((window as any).FundraiseUp) {
-      try {
-        (window as any).FundraiseUp.on('mount', () => {
-          // Widgets are ready
-        });
-        // This helps the widget detect the new route in an SPA
-        (window as any).FundraiseUp.set('h', window.location.href);
-      } catch (e) {
-        console.warn('FundraiseUp trigger failed', e);
-      }
-    }
   }, [pathname]);
   return null;
 };
