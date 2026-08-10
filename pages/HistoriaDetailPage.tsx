@@ -26,6 +26,15 @@ const stories = {
   'campana-vacunacion': {
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774393577/Gemini_Generated_Image_uuxvyyuuxvyyuuxv_nhlm2a.png',
   },
+  'rehabilitacion-esperanza': {
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1786385136/503810038_1119028540257939_4639195718653100895_n_efrh5i.jpg',
+  },
+  'deporte-comunidad': {
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1786385138/Miraflores-20Mayo-42_xzjuxn.jpg',
+  },
+  'playa-se-conserva': {
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1786385137/BlueFlag-21Mayo-35_k2k25e.jpg',
+  },
 };
 
 const HistoriaDetailPage: React.FC = () => {

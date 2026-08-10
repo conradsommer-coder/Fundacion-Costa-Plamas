@@ -59,6 +59,18 @@ export const storySlugs: Record<string, Record<Language, string>> = {
     es: 'campana-vacunacion',
     en: 'vaccination-campaign',
   },
+  'rehabilitacion-esperanza': {
+    es: 'rehabilitacion-esperanza',
+    en: 'rehabilitation-brings-hope-closer',
+  },
+  'deporte-comunidad': {
+    es: 'deporte-comunidad',
+    en: 'sports-bring-community-back',
+  },
+  'playa-se-conserva': {
+    es: 'playa-se-conserva',
+    en: 'preserving-the-beach-every-day',
+  },
 };
 
 const slugToStoryId = Object.entries(storySlugs).reduce<Record<string, string>>((acc, [storyId, slugs]) => {
@@ -174,4 +186,3 @@ export const getEquivalentLocalizedPath = (
 
   return `${getLocalizedPath(routeInfo.routeKey, targetLanguage, { storyId: routeInfo.storyId })}${search}${hash}`;
 };
-

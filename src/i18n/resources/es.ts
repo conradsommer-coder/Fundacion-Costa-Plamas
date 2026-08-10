@@ -48,11 +48,11 @@ const es = {
     items: [
       {
         title: 'Misión',
-        description: 'Impulsar el desarrollo integral de las comunidades de Cabo del Este a través de programas sostenibles en educación, salud y medio ambiente.',
+        description: 'Contribuir a la conservación de la biodiversidad y los recursos naturales, así como al desarrollo de nuestras comunidades, mediante acciones sostenibles que mejoren la calidad de vida de los habitantes de la región de Cabo del Este.',
       },
       {
         title: 'Visión',
-        description: 'Ser el motor de transformación que convierta a Cabo del Este en un modelo de desarrollo equilibrado, donde la prosperidad humana y la conservación natural coexistan.',
+        description: 'Ser una organización líder en desarrollo social, sostenibilidad y protección ambiental, promoviendo el bien común con profesionalismo y transparencia.',
       },
       {
         title: 'Valores',
@@ -122,6 +122,24 @@ const es = {
         date: '17 Abr 2025',
         category: 'Salud',
         content: '<p>La salud pública también incluye el bienestar de nuestros animales de compañía. Recientemente, llevamos a cabo una jornada de vacunación y desparasitación que benefició a más de 100 mascotas de la comunidad.</p><p>Esta iniciativa busca prevenir enfermedades zoonóticas y promover la tenencia responsable. Contamos con el apoyo de veterinarios voluntarios y un equipo de jóvenes entusiastas que ayudaron en la logística y registro de los pacientes peludos.</p><p>Estamos convencidos de que una comunidad que cuida a sus animales es una comunidad más empática y saludable. Agradecemos a todas las familias que se acercaron y demostraron su compromiso con la salud de sus mascotas.</p><p>Además de las vacunas, ofrecimos charlas breves sobre nutrición y cuidados básicos, asegurando que los dueños tengan la información necesaria para brindar una vida digna a sus compañeros. Próximamente anunciaremos nuevas fechas para continuar con este importante programa.</p>',
+      },
+      'rehabilitacion-esperanza': {
+        title: 'Cuando la rehabilitación está más cerca, también lo está la esperanza',
+        date: '10 Ago 2026',
+        category: 'Salud',
+        content: '<p>Para una familia, recibir un diagnóstico es solo el comienzo. El verdadero reto muchas veces es acceder a atención especializada, terapias y acompañamiento que permitan a cada niña y niño desarrollar su máximo potencial. Cuando esos servicios están cerca, también lo están las oportunidades de construir un mejor futuro.</p><p>El Centro de Rehabilitación e Inclusión Infantil Teletón (CRIT) es una de las organizaciones más importantes de México en la atención especializada para niñas, niños y adolescentes con discapacidad o condiciones del desarrollo. A través de servicios de rehabilitación, terapias y programas de inclusión, también brinda acompañamiento a las familias durante todo su proceso.</p><p>Gracias a la alianza entre Fundación Costa Palmas y CRIT Baja California Sur, aproximadamente 1,051 niñas, niños y sus familias han tenido acceso a servicios especializados de rehabilitación, ampliando las oportunidades de atención integral e inclusión en nuestra región.</p><p>Este compromiso continúa fortaleciéndose con la apertura de CRIT Los Cabos, un espacio que acerca terapias y atención especializada a cientos de familias del municipio. Como aliado de este nuevo centro, Fundación Costa Palmas reafirma su compromiso de seguir impulsando iniciativas que permitan que más niñas y niños reciban la atención que necesitan, cerca de su hogar.</p><p>Porque cuando una comunidad acerca oportunidades de salud e inclusión, no solo transforma la vida de una persona: fortalece el bienestar y el futuro de toda la comunidad.</p>',
+      },
+      'deporte-comunidad': {
+        title: 'Donde vuelve el deporte, vuelve la comunidad',
+        date: '10 Ago 2026',
+        category: 'Espacios que Transforman',
+        content: '<p>Un estadio es mucho más que un lugar para jugar béisbol. Es donde niñas y niños aprenden a trabajar en equipo, donde las familias se reúnen para apoyar a sus hijos y donde una comunidad fortalece los lazos que la unen.</p><p>Por eso, la rehabilitación del Estadio Estrellas de Miraflores representa mucho más que una mejora en la infraestructura. Es el resultado de un esfuerzo compartido entre la Delegación Municipal de Miraflores, Fundación Costa Palmas, entrenadores, madres y padres de familia, voluntarios y el equipo Venaditos Miraflores, quienes sumaron tiempo, trabajo y entusiasmo para devolverle vida a este espacio.</p><p>La transformación comenzó con una jornada comunitaria de pintura y mejoramiento, demostrando que los proyectos generan un mayor impacto cuando gobierno, comunidad y aliados trabajan con un mismo propósito.</p><p>Semanas después, ese esfuerzo cobró sentido durante la inauguración del renovado estadio. Ver nuevamente las gradas llenas, los equipos entrenando y las familias reunidas confirmó que los espacios públicos recuperan su verdadero valor cuando la comunidad los hace suyos.</p><p>En Fundación Costa Palmas creemos que invertir en infraestructura también es invertir en oportunidades. Cada espacio recuperado crea un lugar más seguro para el deporte, la convivencia y el desarrollo de niñas, niños y jóvenes de Cabo del Este.</p><p>Porque transformar un espacio es importante. Ver a una comunidad volver a llenarlo de vida es el verdadero éxito del proyecto.</p>',
+      },
+      'playa-se-conserva': {
+        title: 'Una playa se conserva todos los días, no solo cuando la visitamos',
+        date: '10 Ago 2026',
+        category: 'Medio Ambiente',
+        content: '<p>Las playas son parte de la identidad de Cabo del Este. Son espacios donde convivimos, recibimos visitantes y conectamos con el entorno natural. Sin embargo, mantenerlas limpias, seguras y en buen estado requiere un trabajo constante que muchas veces ocurre detrás de escena.</p><p>Por tercer año consecutivo, Fundación Costa Palmas y ZOFEMAT Los Cabos renovaron su acuerdo de colaboración para continuar fortaleciendo el cuidado y mantenimiento de Playa El Surgidero, reafirmando un compromiso compartido con la conservación de este importante espacio público.</p><p>Como parte de esta colaboración, también se revisaron los lineamientos y acciones necesarias para dar continuidad al cumplimiento de la certificación Blue Flag, un reconocimiento internacional que distingue a las playas que cumplen con altos estándares de calidad ambiental, seguridad, accesibilidad, educación ambiental y gestión sostenible.</p><p>Más allá de conservar una certificación, este trabajo representa un esfuerzo permanente por proteger un espacio que forma parte de la vida cotidiana de la comunidad y del patrimonio natural de la región. Mantener una playa en óptimas condiciones es posible gracias a la colaboración entre autoridades, organizaciones y ciudadanía.</p><p>En Fundación Costa Palmas creemos que el cuidado del medio ambiente comienza con la responsabilidad compartida. Cada alianza fortalece la capacidad de generar un impacto duradero y de preservar los espacios naturales que hoy disfrutamos y que queremos seguir compartiendo con las futuras generaciones.</p><p>Porque cuidar una playa no es una acción de un solo día; es un compromiso que se renueva todos los días.</p>',
       },
     },
   },

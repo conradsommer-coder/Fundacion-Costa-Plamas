@@ -48,11 +48,11 @@ const en = {
     items: [
       {
         title: 'Mission',
-        description: 'To promote the comprehensive development of Cabo del Este communities through sustainable programs in education, health, and the environment.',
+        description: 'To contribute to the conservation of biodiversity and natural resources, as well as to the development of our communities, through sustainable actions that improve the quality of life of the people of the Cabo del Este region.',
       },
       {
         title: 'Vision',
-        description: 'To be a driver of transformation that makes Cabo del Este a model of balanced development, where human prosperity and natural conservation coexist.',
+        description: 'To be a leading organization in social development, sustainability, and environmental protection, advancing the common good with professionalism and transparency.',
       },
       {
         title: 'Values',
@@ -122,6 +122,24 @@ const en = {
         date: 'Apr 17, 2025',
         category: 'Health',
         content: '<p>Public health also includes the well-being of our companion animals. Recently, we held a vaccination and deworming campaign that benefited more than 100 animals in the community.</p><p>This initiative seeks to prevent zoonotic diseases and promote responsible care. We had the support of volunteer veterinarians and a team of enthusiastic young people who helped with logistics and patient registration.</p><p>We are convinced that a community that cares for its animals is a more empathetic and healthy community. We thank all the families who came forward and showed their commitment to their animals\' health.</p><p>In addition to vaccines, we offered brief talks on nutrition and basic care, ensuring that owners have the information they need to provide a dignified life for their companions. We will announce new dates soon to continue this important program.</p>',
+      },
+      'rehabilitacion-esperanza': {
+        title: 'When rehabilitation is closer, so is hope',
+        date: 'Aug 10, 2026',
+        category: 'Health',
+        content: '<p>For a family, receiving a diagnosis is only the beginning. The real challenge is often gaining access to specialized care, therapy, and support that allow every child to reach their full potential. When these services are close by, so are the opportunities to build a better future.</p><p>The Teletón Children\'s Rehabilitation and Inclusion Center (CRIT) is one of Mexico\'s leading organizations providing specialized care for children and adolescents with disabilities or developmental conditions. Through rehabilitation services, therapies, and inclusion programs, it also supports families throughout the entire process.</p><p>Thanks to the partnership between Fundación Costa Palmas and CRIT Baja California Sur, approximately 1,051 children and their families have gained access to specialized rehabilitation services, expanding opportunities for comprehensive care and inclusion in our region.</p><p>This commitment continues to grow stronger with the opening of CRIT Los Cabos, a center that brings therapies and specialized care closer to hundreds of families in the municipality. As a partner of this new center, Fundación Costa Palmas reaffirms its commitment to continuing to advance initiatives that enable more children to receive the care they need, close to home.</p><p>Because when a community brings health and inclusion opportunities closer, it does more than transform one person\'s life: it strengthens the well-being and future of the entire community.</p>',
+      },
+      'deporte-comunidad': {
+        title: 'Where sports return, community returns',
+        date: 'Aug 10, 2026',
+        category: 'Spaces that Transform',
+        content: '<p>A stadium is much more than a place to play baseball. It is where children learn to work as a team, where families gather to support them, and where a community strengthens the bonds that unite it.</p><p>That is why the rehabilitation of Estadio Estrellas de Miraflores represents much more than an infrastructure improvement. It is the result of a shared effort among the Miraflores Municipal Delegation, Fundación Costa Palmas, coaches, mothers and fathers, volunteers, and the Venaditos Miraflores team, who contributed their time, work, and enthusiasm to bring this space back to life.</p><p>The transformation began with a community painting and improvement day, demonstrating that projects have a greater impact when government, community, and partners work toward a common purpose.</p><p>Weeks later, that effort came to life during the inauguration of the renovated stadium. Seeing the stands full again, the teams training, and families gathered confirmed that public spaces regain their true value when the community makes them its own.</p><p>At Fundación Costa Palmas, we believe that investing in infrastructure also means investing in opportunities. Every restored space creates a safer place for sports, community life, and the development of children and young people in Cabo del Este.</p><p>Because transforming a space is important. Seeing a community fill it with life again is the project\'s true success.</p>',
+      },
+      'playa-se-conserva': {
+        title: 'A beach is preserved every day, not only when we visit it',
+        date: 'Aug 10, 2026',
+        category: 'Environment',
+        content: '<p>Beaches are part of Cabo del Este\'s identity. They are places where we spend time together, welcome visitors, and connect with the natural environment. However, keeping them clean, safe, and in good condition requires constant work that often happens behind the scenes.</p><p>For the third consecutive year, Fundación Costa Palmas and ZOFEMAT Los Cabos renewed their collaboration agreement to continue strengthening the care and maintenance of Playa El Surgidero, reaffirming a shared commitment to conserving this important public space.</p><p>As part of this collaboration, they also reviewed the guidelines and actions needed to maintain compliance with the Blue Flag certification, an international recognition awarded to beaches that meet high standards for environmental quality, safety, accessibility, environmental education, and sustainable management.</p><p>Beyond retaining a certification, this work represents an ongoing effort to protect a space that is part of the community\'s daily life and the region\'s natural heritage. Keeping a beach in optimal condition is possible thanks to collaboration among authorities, organizations, and citizens.</p><p>At Fundación Costa Palmas, we believe environmental stewardship begins with shared responsibility. Every partnership strengthens our ability to create lasting impact and preserve the natural spaces we enjoy today and want to continue sharing with future generations.</p><p>Because caring for a beach is not a one-day action; it is a commitment renewed every day.</p>',
       },
     },
   },

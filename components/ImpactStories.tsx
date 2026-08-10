@@ -22,6 +22,18 @@ const stories = [
     id: 'campana-vacunacion',
     image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1774393577/Gemini_Generated_Image_uuxvyyuuxvyyuuxv_nhlm2a.png',
   },
+  {
+    id: 'rehabilitacion-esperanza',
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1786385136/503810038_1119028540257939_4639195718653100895_n_efrh5i.jpg',
+  },
+  {
+    id: 'deporte-comunidad',
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1786385138/Miraflores-20Mayo-42_xzjuxn.jpg',
+  },
+  {
+    id: 'playa-se-conserva',
+    image: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1786385137/BlueFlag-21Mayo-35_k2k25e.jpg',
+  },
 ];
 
 interface ImpactStoriesProps {
@@ -75,7 +87,7 @@ const ImpactStories: React.FC<ImpactStoriesProps> = ({ showTitle = true }) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid md:grid-cols-3 gap-12"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-12"
         >
           {stories.map((story, index) => (
             <motion.div 

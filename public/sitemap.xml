@@ -210,4 +210,67 @@
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
+  <url>
+    <loc>http://localhost:4173/historias/rehabilitacion-esperanza</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/rehabilitacion-esperanza" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/rehabilitation-brings-hope-closer" />
+    <changefreq>monthly</changefreq>
+    <priority>0.45</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/es/historias/rehabilitacion-esperanza</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/rehabilitacion-esperanza" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/rehabilitation-brings-hope-closer" />
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/en/stories/rehabilitation-brings-hope-closer</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/rehabilitacion-esperanza" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/rehabilitation-brings-hope-closer" />
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/historias/deporte-comunidad</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/deporte-comunidad" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/sports-bring-community-back" />
+    <changefreq>monthly</changefreq>
+    <priority>0.45</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/es/historias/deporte-comunidad</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/deporte-comunidad" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/sports-bring-community-back" />
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/en/stories/sports-bring-community-back</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/deporte-comunidad" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/sports-bring-community-back" />
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/historias/playa-se-conserva</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/playa-se-conserva" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/preserving-the-beach-every-day" />
+    <changefreq>monthly</changefreq>
+    <priority>0.45</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/es/historias/playa-se-conserva</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/playa-se-conserva" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/preserving-the-beach-every-day" />
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/en/stories/preserving-the-beach-every-day</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="http://localhost:4173/es/historias/playa-se-conserva" />
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost:4173/en/stories/preserving-the-beach-every-day" />
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
 </urlset>

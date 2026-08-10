@@ -14,6 +14,7 @@ const partners = [
   { name: 'SOFEMAT', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292690/ZOFEMAT_wlr8ua.jpg' },
   { name: 'Amigos de los Animales', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1776292711/logo_ra4o3f.png' },
   { name: 'ATM Banco de Sangre', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1778195689/ATM_Banco_de_Sangre_xby4pd.jpg' },
+  { name: 'Casa Sheila Animal Welfare', logo: 'https://res.cloudinary.com/dr78wne7t/image/upload/v1786385136/8cY0DW0xPnt0iJwWteCNULsv48_l02lft.webp' },
 ];
 
 const Partners: React.FC = () => {
